@@ -5,8 +5,9 @@ import HomeImg from './img/Home.png';
 import Button from 'react-bootstrap/Button';
 import Clock from 'react-live-clock';
 import { CCard,CCardBody,CCardHeader,CCardText,CCardTitle } from '@coreui/react';
+import { withAuth0 } from '@auth0/auth0-react';
 
-export default class Table extends React.Component {
+class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -94,3 +95,5 @@ export default class Table extends React.Component {
     }
 
 }
+
+export default withAuth0(Table);

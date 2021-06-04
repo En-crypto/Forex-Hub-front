@@ -10,7 +10,7 @@ class Hero extends React.Component {
         return (
             <div className='hero-section'>
                 <img src ={HeroImg} alt='Hero' className= 'hero'/>
-                <Button className='hero-btn'>Join Us</Button>
+                <Button className='hero-btn' href='https://mohiesen.eu.auth0.com/u/signup?state=hKFo2SBEM0psRjcwYklEMGRxTVpaLXVpcmxxMHR1WDljbjZtaaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDMxSVc2UXZhcVU4M0ZaZTZhUHhMejJUeE5tWUVzZmtwo2NpZNkgN2Jwc0V5NE5SUjZFQlVhZWRZdXRtamNPajZKc1k0aDg'>Join Us</Button>
             </div>
         )
     }
