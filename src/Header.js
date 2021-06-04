@@ -1,10 +1,4 @@
-// import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
-// import './header.css';
-
-// export default Header;
 import React, { useState } from 'react';
 import {
   MDBContainer,
@@ -17,8 +11,11 @@ import {
   MDBIcon,
   MDBCollapse
 } from 'mdb-react-ui-kit';
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogOut";
+import { withAuth0 } from '@auth0/auth0-react';
 
-export default function Header() {
+function Header(props) {
   const [showNavSecond, setShowNavSecond] = useState(false);
 
   return (
@@ -37,14 +34,18 @@ export default function Header() {
             <MDBNavbarLink active aria-current='page' href='#'>
             <Link to="/">Home</Link>
             </MDBNavbarLink>
-            <MDBNavbarLink href='#'><Link to="/profile">Profile</Link></MDBNavbarLink>
+            {props.auth0.isAuthenticated && <MDBNavbarLink href='#'><Link to="/profile">Profile</Link></MDBNavbarLink>}
             <MDBNavbarLink href='#'><Link to="/contact">Contact Us</Link></MDBNavbarLink>
             <MDBNavbarLink href='#'>
             <Link to="/about">About Us</Link>
             </MDBNavbarLink>
+            <LoginButton/>
+            <LogoutButton/>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
   );
 }
+
+export default withAuth0(Header);

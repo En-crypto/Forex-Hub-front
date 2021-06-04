@@ -5,6 +5,7 @@ import AboutUs from './AboutUs';
 import Table from './Table';
 import Hero from './Hero';
 import './css/App.css';
+import { withAuth0 } from '@auth0/auth0-react';
 // import '@coreui/dist/css/coreui.min.css';
 import {
   BrowserRouter as Router,
@@ -22,14 +23,16 @@ class App extends React.Component {
   render() {
     console.log('app', this.props)
     return (
+      
       <Router>
         <Header />
         <Switch>
             <Route exact path="/">
               <Hero />
           <div className='body'>
-              <Table />
+                <Table />
           </div>
+          {(this.props.auth0.isAuthenticated) ? console.log(this.props.auth0.user.email) : console.log('No email')}
             </Route>
           <Route exact path="/profile">
 
@@ -47,4 +50,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth0(App);
