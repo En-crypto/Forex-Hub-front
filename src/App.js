@@ -13,8 +13,6 @@ import {
   Route
 } from "react-router-dom";
 import './css/App.css';
-import { SocialIcon } from 'react-social-icons';
-
 
 
 
