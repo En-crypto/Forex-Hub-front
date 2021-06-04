@@ -4,30 +4,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomeImg from './img/Home.png';
 import Button from 'react-bootstrap/Button';
 import Clock from 'react-live-clock';
-import { CCard,CCardBody,CCardHeader,CCardText,CCardTitle } from '@coreui/react';
+import { CCard, CCardBody, CCardHeader, CCardText, CCardTitle } from '@coreui/react';
 import { withAuth0 } from '@auth0/auth0-react';
-
+import axios from 'axios';
 
 class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            time: Date
+            livePrice: []
         }
     }
 
-    d = new Date();
-    // setTimeout(changeTime, 3000);
-
-    // changeTime = ()=> {
-    //     this.setState({
-    //         time:Date.now
-    //     })
-    // }
+    getLivePrice = async () => {
+        let source = 'http://localhost:3001/rate';
+        const livePrice = await axios.get(`${source}?base=USD`);
+        this.setState({
+            livePrice:Object.entries(livePrice.data.rates)
+        })
+        console.log(this.state.livePrice);
+    }
 
     render() {
         return (
-            <div className='live' id='live'>
+            <div className='live' id='live' onLoad={this.getLivePrice}>
                 <Button>USD</Button>
                 <Button>GBP</Button>
                 <Button>EUR</Button>
@@ -42,23 +42,17 @@ class Table extends React.Component {
                         </tr>
                     </MDBTableHead>
                     <MDBTableBody>
-                        <tr>
+                        {
+                        this.state.livePrice.map(item => {
+                            return(
+                            <tr>
                             <th scope='row'>1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <td>{item[0]}</td>
+                            <td>{item[1]}</td>
                             <td><Clock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Aden'} /></td>
                         </tr>
-                        <tr>
-                            <th scope='row'>2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td><Clock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Aden'} /></td>
-                        </tr>
-                        <tr>
-                            <th scope='row'>3</th>
-                            <td colSpan={2}>Larry the Bird</td>
-                            <td><Clock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Aden'} /></td>
-                        </tr>
+                            )
+                        })}
                     </MDBTableBody>
                 </MDBTable>
                 <div className='home-section' id="home">
@@ -75,55 +69,54 @@ class Table extends React.Component {
                 </div>
 
                 <div className='cards'>
-                <a href="/#home">
-                <CCard
-                    
-                    color='light'
-                    textColor='black'
-                    className="mb-3 card"
-                    style={{ maxWidth: '18rem' }} >
-                    <CCardHeader>Explore!</CCardHeader>
-                    <CCardBody>
-                        <CCardText>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                    <a href="/#home">
+                        <CCard
+
+                            color='light'
+                            textColor='black'
+                            className="mb-3 card"
+                            style={{ maxWidth: '18rem' }} >
+                            <CCardHeader>Explore!</CCardHeader>
+                            <CCardBody>
+                                <CCardText>
+                                    Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.
                     </CCardText>
-                    </CCardBody>
-                </CCard>
-                </a>
-                <a href="/#live">
-                <CCard
-                    
-                    color='light'
-                    textColor='black'
-                    className="mb-3 card"
-                    style={{ maxWidth: '18rem' }} >
-                    <CCardHeader>Live Updates</CCardHeader>
-                    <CCardBody>
-                        <CCardText>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            </CCardBody>
+                        </CCard>
+                    </a>
+                    <a href="/#live">
+                        <CCard
+
+                            color='light'
+                            textColor='black'
+                            className="mb-3 card"
+                            style={{ maxWidth: '18rem' }} >
+                            <CCardHeader>Live Updates</CCardHeader>
+                            <CCardBody>
+                                <CCardText>
+                                    Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.
                     </CCardText>
-                    </CCardBody>
-                </CCard>
-                </a>
-                <a href="/#hero-btn">
-                <CCard
-                    
-                    color='light'
-                    textColor='black'
-                    className="mb-3 card"
-                    style={{ maxWidth: '18rem' }} >
-                    <CCardHeader>Join Us</CCardHeader>
-                    <CCardBody>
-                        <CCardText>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            </CCardBody>
+                        </CCard>
+                    </a>
+                    <a href="/#hero-btn">
+                        <CCard
+
+                            color='light'
+                            textColor='black'
+                            className="mb-3 card"
+                            style={{ maxWidth: '18rem' }} >
+                            <CCardHeader>Join Us</CCardHeader>
+                            <CCardBody>
+                                <CCardText>
+                                    Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.
                     </CCardText>
-                    </CCardBody>
-                </CCard>
-                </a>
-                   
+                            </CCardBody>
+                        </CCard>
+                    </a>
 
                 </div>
             </div>
