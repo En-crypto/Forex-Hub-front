@@ -1,50 +1,48 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from 'react-bootstrap/Navbar';
+import { SocialIcon } from 'react-social-icons';
+
+
+
 
 class Footer extends React.Component {
   render() {
     return (
       <>
-        <section></section>
+        <section>
+          <p></p>
+        </section>
         <footer class="footer-distributed">
 
           <div class="footer-left">
 
-            <h3>Company<span>logo</span></h3>
+            <h3>ForexHub<span>logo</span></h3>
 
             <p class="footer-links">
-              <a href="#" class="link-1">Home</a>
-
-              <a href="#">Blog</a>
-
-              <a href="#">Pricing</a>
-
-              <a href="#">About</a>
-
-              <a href="#">Faq</a>
-
-              <a href="#">Contact</a>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
             </p>
 
-            <p class="footer-company-name">Company Name © 2015</p>
+            <p class="footer-company-name">ForexHub © 2021</p>
           </div>
 
           <div class="footer-center">
 
             <div>
               <i class="fa fa-map-marker"></i>
-              <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+              <p><span>Macca street</span> Amman, Jordan</p>
             </div>
 
             <div>
               <i class="fa fa-phone"></i>
-              <p>+1.555.555.5555</p>
+              <p>+962 650 50000</p>
             </div>
 
             <div>
               <i class="fa fa-envelope"></i>
-              <p><a href="mailto:support@company.com">support@company.com</a></p>
+              <p><a href="mailto:forex-hub@gmail.com">forex-hub@gmail.com</a></p>
             </div>
 
           </div>
@@ -58,10 +56,10 @@ class Footer extends React.Component {
 
             <div class="footer-icons">
 
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-              <a href="#"><i class="fa fa-github"></i></a>
+            <SocialIcon network="facebook" url="https://github.com/Haneenabonser" />
+            <SocialIcon network="instagram" url="https://github.com/Haneenabonser" />
+            <SocialIcon network="twitter" url="https://github.com/Haneenabonser" />
+            <SocialIcon network="google" url="https://github.com/Haneenabonser" />
 
             </div>
 
