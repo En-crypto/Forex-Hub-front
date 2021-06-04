@@ -37,7 +37,7 @@ export default function Header() {
   const [showNavSecond, setShowNavSecond] = useState(false);
 
   return (
-    <MDBNavbar expand='lg' light bgColor='light'>
+    <MDBNavbar expand='lg' light bgColor='light' className='nav'>
       <MDBContainer fluid>
         <MDBNavbarBrand href='#'><Link to="/">Navbar</Link></MDBNavbarBrand>
         <MDBNavbarToggler

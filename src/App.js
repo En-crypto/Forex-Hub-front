@@ -17,27 +17,27 @@ class App extends React.Component {
   render() {
     console.log('app', this.props)
     return (
-      <>
-        <Router>
-          <Header />
-          <Switch>
+      <Router>
+        <Header />
+        <Switch>
             <Route exact path="/">
-              <Hero/>
-            <Table/>
+              <Hero />
+          <div className='body'>
+              <Table />
+          </div>
             </Route>
-            <Route exact path="/profile">
+          <Route exact path="/profile">
 
-            </Route>
-            <Route exact path="/contact">
-            </Route>
+          </Route>
+          <Route exact path="/contact">
+          </Route>
 
-            <Route exact path="/about">
+          <Route exact path="/about">
 
-            </Route>
-          </Switch>
-          <Footer />
-        </Router>
-      </>
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
     )
   }
 }
