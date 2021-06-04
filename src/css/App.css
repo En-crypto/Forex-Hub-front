@@ -1,4 +1,3 @@
-
 #social-icon{
     width: 20px !important;
     height: 20px !important;
@@ -44,4 +43,49 @@ h6{
     margin-left:15% ;
     margin-right: 15%;
     margin-top: 30px;
+}
+
+.hero{
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+
+.hero-section{
+    position: relative;
+    height: 100%;
+}
+
+.hero-btn{
+    position: absolute;
+    left: 40%;
+    bottom :35%;
+    width: 20%;
+    border-radius: 0.7rem;
+}
+
+.home{
+    width: 25%;
+    margin: 50px 0 ;
+    float: left;
+}
+
+.footer{
+    clear: both;
+}
+
+p{
+    margin: 50px 0;
+}
+
+.cards{
+    position: relative;
+}
+.body{
+    width: 90%;
+    margin: auto;
+}
+
+#nav{
+    width: 100%;
 }
