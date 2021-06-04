@@ -1,16 +1,21 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import AboutUs from './AboutUs';
 import Table from './Table';
 import Hero from './Hero';
 import './css/App.css';
 // import '@coreui/dist/css/coreui.min.css';
-
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import './css/App.css';
+import { SocialIcon } from 'react-social-icons';
+
+
+
 
 class App extends React.Component {
 
@@ -33,7 +38,7 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/about">
-
+              <AboutUs />
           </Route>
         </Switch>
         <Footer />
