@@ -13,6 +13,8 @@ import {
   Route
 } from "react-router-dom";
 import './css/App.css';
+import Profile from './components/Profile';
+import Contact from './components/ContactUs';
 
 
 
@@ -33,11 +35,11 @@ class App extends React.Component {
           {(this.props.auth0.isAuthenticated) ? console.log(this.props.auth0.user.email) : console.log('No email')}
             </Route>
           <Route exact path="/profile">
-
+            <Profile/>
           </Route>
           <Route exact path="/contact">
+            <Contact/>
           </Route>
-
           <Route exact path="/about">
               <AboutUs />
           </Route>
