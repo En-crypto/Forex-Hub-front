@@ -28,7 +28,10 @@
 h6{
     margin-bottom: 15px;
 }
-
+.chart{
+    width: 50%;
+    margin: auto;
+}
 .converter{
     width: 50%;
     margin: auto;

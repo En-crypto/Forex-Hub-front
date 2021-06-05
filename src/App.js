@@ -15,6 +15,7 @@ import {
 import './css/App.css';
 import Profile from './components/Profile';
 import Form from './components/ContactUs';
+import LineChart from './components/Chart';
 
 
 
@@ -35,6 +36,7 @@ class App extends React.Component {
             </Route>
           <Route exact path="/profile">
             <Profile/>
+            <LineChart/>
           </Route>
           <Route exact path="/contact">
             <Form/>
