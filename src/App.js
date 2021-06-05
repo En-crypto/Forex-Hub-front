@@ -32,7 +32,6 @@ class App extends React.Component {
           <div className='body'>
                 <Table />
           </div>
-          {(this.props.auth0.isAuthenticated) ? console.log(this.props.auth0.user.email) : console.log('No email')}
             </Route>
           <Route exact path="/profile">
             <Profile/>

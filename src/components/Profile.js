@@ -11,7 +11,7 @@ class Profile extends React.Component {
       progress:25,
       currentUser:{}
     }
-    
+ 
   }
   addUser = async () => {
     const userData = {

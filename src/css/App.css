@@ -1,7 +1,13 @@
 #root{
     background-color: whitesmoke;
 }
-
+.curr-btn{
+    margin-left: 60px;
+}
+.curr-btn:focus{
+    background-color: grey;
+    height: 50px;
+}
 /* header */
 .logging{
     float: right;
@@ -10,9 +16,22 @@
     width: 20px !important;
     height: 20px !important;
 }
-
+.up-arrow{
+    color: green;
+}
+.dash{
+    color: grey;
+}
+.down-arrow{
+    color: red;
+}
 h6{
     margin-bottom: 15px;
+}
+
+.converter{
+    width: 50%;
+    margin: auto;
 }
 
 #img-cards1{
