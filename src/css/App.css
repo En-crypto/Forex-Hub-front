@@ -29,6 +29,11 @@ h6{
     margin-bottom: 15px;
 }
 
+.converter{
+    width: 50%;
+    margin: auto;
+}
+
 #img-cards1{
     display: flex;
     margin-left: 20%;
