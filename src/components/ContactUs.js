@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import {Button, Card , Modal} from 'react-bootstrap/';
 import '../css/App.css';
+import axios from 'axios';
 // import CountactUsCss from ''
 
 class Contact extends React.Component {
@@ -13,7 +14,7 @@ class Contact extends React.Component {
             userNumber: '',
             userFeedback: '',
             show: false,
-            
+            serverRoute: process.env.REACT_APP_SERVER
         });
     }
     
@@ -28,7 +29,14 @@ class Contact extends React.Component {
 
       
     })
+    const feedbackData ={
+        userName: this.state.userName,
+        userEmail:  this.state.userEmail,
+        userNumber:  this.state.userNumber,
+        userFeedback:  this.state.userFeedback,
+    }
 
+    const newFeedback = await axios.post(`${this.state.serverRoute}/contactUs`,feedbackData)
     
     console.log('hiiiiiiiiiiii');
   console.log(event.target.userEmail.value);
