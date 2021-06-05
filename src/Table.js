@@ -7,52 +7,94 @@ import Clock from 'react-live-clock';
 import { CCard, CCardBody, CCardHeader, CCardText, CCardTitle } from '@coreui/react';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import { ArrowRight } from 'react-bootstrap-icons';
 
 class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            livePrice: []
+            livePrice: [],
+            historyPrice: [],
+            base: 'EUR',
+            state: []
         }
+        console.log(this.state.base);
     }
 
-    getLivePrice = async () => {
-        let source = 'http://localhost:3001/rate';
-        const livePrice = await axios.get(`${source}?base=USD`);
+    getLivePrice = async (e) => {
+        let source = 'http://localhost:3001';
+        const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
         this.setState({
-            livePrice:Object.entries(livePrice.data.rates)
+            base: e.target.value
         })
-        console.log(this.state.livePrice);
+        const livePrice = await axios.get(`${source}/rate?base=${this.state.base}`);
+        this.setState({
+            livePrice: Object.entries(livePrice.data.rates),
+        })
+        this.getHistory();
     }
+
+    getHistory = async () => {
+        let source = 'http://localhost:3001';
+        const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
+
+        this.setState({
+            state: historyPrice.data,
+
+        })
+    }
+
 
     render() {
         return (
             <div className='live' id='live' onLoad={this.getLivePrice}>
-                <Button>USD</Button>
-                <Button>GBP</Button>
-                <Button>EUR</Button>
-                <Button>CAD</Button>
+                <Button onClick={this.getLivePrice} value='USD' className='curr-btn'>USD</Button>
+                <Button onClick={this.getLivePrice} value='GBP' className='curr-btn'>GBP</Button>
+                <Button onClick={this.getLivePrice} value='EUR' className='curr-btn'>EUR</Button>
+                <Button onClick={this.getLivePrice} value='CAD' className='curr-btn'>CAD</Button>
                 <MDBTable hover>
                     <MDBTableHead>
-                        <tr>
-                            <th scope='col'>#</th>
+                        <tr onLoad={this.getLivePrice}>
+                            <th scope='col'>State</th>
                             <th scope='col'>Currency</th>
-                            <th scope='col'>Price</th>
+                            <th scope='col'>Price to {this.state.base}<sub>(EUR by default)</sub></th>
                             <th scope='col'>Time</th>
                         </tr>
                     </MDBTableHead>
                     <MDBTableBody>
                         {
-                        this.state.livePrice.map(item => {
-                            return(
-                            <tr>
-                            <th scope='row'>1</th>
-                            <td>{item[0]}</td>
-                            <td>{item[1]}</td>
-                            <td><Clock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Aden'} /></td>
-                        </tr>
-                            )
-                        })}
+                            this.state.livePrice.map((item, idx) => {
+                                return (
+                                    <tr>
+                                        <th scope='row'>
+                                            {
+                                            (this.state.state[idx] === 0)?
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                    <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"
+                                                    className='dash' />
+                                                </svg>
+                                                :
+                                            (this.state.state[idx] === 1 ) ?
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                                <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
+                                                    className='up-arrow'
+                                                />
+                                            </svg>
+                                                :
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                                                    className='down-arrow'
+                                                />
+                                            </svg>
+                                            }
+
+                                        </th>
+                                        <td>{item[0]}</td>
+                                        <td>{item[1]}</td>
+                                        <td><Clock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Aden'} /></td>
+                                    </tr>
+                                )
+                            })}
                     </MDBTableBody>
                 </MDBTable>
                 <div className='home-section' id="home">
