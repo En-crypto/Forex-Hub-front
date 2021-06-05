@@ -1,6 +1,11 @@
 #root{
     background-color: whitesmoke;
 }
+
+/* header */
+.logging{
+    float: right;
+}
 #social-icon{
     width: 20px !important;
     height: 20px !important;
@@ -45,6 +50,10 @@ h6{
     width: 70%;
 	margin: 0 auto;
 	margin-top: 30px;
+}
+
+.slides{
+    height: 600px;
 }
 
 .hero{
@@ -112,9 +121,12 @@ p{
     margin: auto;
 }
 
-#nav{
-    width: 100%;
+.nav link{
+    text-decoration: none;
+    color: black;
+    
 }
+
 
 
 /* footer */
