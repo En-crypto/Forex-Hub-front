@@ -322,3 +322,42 @@ section {
 	}
 
 }
+
+/* Contact us styling */
+.col{
+	-webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+.text-center{
+	width: 45%;
+	margin-left: 31%; 
+}
+.text-center:hover{
+	bottom: 0%;
+}
+.text-center{
+	padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-radius: 0 !important;
+	flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+margin-top: 10vmin;
+}
+
+.bb{
+	width: 10rem;
+}
+/* Contact us styling */
