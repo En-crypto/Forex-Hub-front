@@ -36,8 +36,8 @@ class Table extends React.Component {
                     <MDBTableHead>
                         <tr>
                             <th scope='col'>#</th>
-                            <th scope='col'>First</th>
-                            <th scope='col'>Last</th>
+                            <th scope='col'>Currency</th>
+                            <th scope='col'>Price</th>
                             <th scope='col'>Time</th>
                         </tr>
                     </MDBTableHead>

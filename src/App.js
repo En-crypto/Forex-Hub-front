@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 import './css/App.css';
 import Profile from './components/Profile';
-import Contact from './components/ContactUs';
+import Form from './components/ContactUs';
 
 
 
@@ -38,7 +38,7 @@ class App extends React.Component {
             <Profile/>
           </Route>
           <Route exact path="/contact">
-            <Contact/>
+            <Form/>
           </Route>
           <Route exact path="/about">
               <AboutUs />
