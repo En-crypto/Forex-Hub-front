@@ -1,1 +1,12 @@
 # Forex-Hub-front
+
+## Wireframes:
+![Wireframes1](https://db3pap006files.storage.live.com/y4mX2wQbNb64xhLBC8MypkOncJD1z0aOdQyWGmH_IN8Jp4eC2d_SgUSg1989Dl-4EqAV3AyyFvrUoD0SRiibJePNl_NIdajTTDMhSn4FuJTidjyW36U8oygnoJJagqw7-_gH-g4JESO1C7CUjSIpGFfXzaLrjvCdXl8UJqUs1UgttesZL3kRRfV7naXjXoE5YFWvc1yOJ3mHA01ZtjrJoqnPw/pro1.jpg?psid=1&width=499&height=735) 
+![Wireframes2](https://db3pap006files.storage.live.com/y4mGlsmBzKZJZ2NlEcvsHeltDcmTF5yhy0MFpioEhoIHxz8rgBJD5AIAbGVm8apceKQUn4SFfH5me9e4ENrsdlzt0ICXNSmbzKoiaPVgVABuTzBGsFW6WEGNDLoL64Tf-VfqrHnrxrrVXeo6_IPGZrUNlgDUBJNsRa0JzyTwHxWQ7STcKSyg16imCLb6xg2kzlXTkMwjOLEX7q4rCHijr-e8A/pro2.jpg?psid=1&width=489&height=735)
+![Wireframes3](https://db3pap006files.storage.live.com/y4mtzw60kh-QAc5sETBtIA7n8RkFJ9sFaJFel1bBXQKiK3IZoXxdXgVS4jqT7aMWmc5Z4u_UZnOjvWyoBbwSkmmiX9RdL8p0y0-Z08kU0XsTNUl1BLRmVLGsSjzR6FbR39e-b0BGuQ1CL-kiJgaTIzAfwX3jvrFfQf0ZYZO4UIMQn2l0L52SHv6GjwQcc2EFnvdFPA4dxzLJEV5HRKtww-jxA/pro3.jpg?psid=1&width=862&height=735)
+
+
+
+## models
+![modles](https://db3pap006files.storage.live.com/y4mlhQukz0u_QUyR0T11PBPhFyXgu54G-IFD8gIHLPPWjCZj3srEEIIm4TQuSITcPN3PbUazq7lnZIhzcW0Zu8QEuyJoiEn1rpCyfAC4W-uapsOjc6YVQZihiSMkNkM5hLcyVcJ2jsCt_HvZjbe-yhMJurP1uph-ehVvlYphPURi5Nhj1B80MIUOjPae8_pQ25VKarpxmEzID-OIvmVA6Zwkw/pic22.png?psid=1&width=975&height=510)
+
