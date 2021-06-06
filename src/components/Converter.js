@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import { ArrowLeftRight } from 'react-bootstrap-icons';
-
+import { withAuth0 } from '@auth0/auth0-react';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 
 class Converter extends React.Component {
@@ -64,7 +65,19 @@ class Converter extends React.Component {
             amount: e.target.value
         })
 
-        console.log(this.state.amount);
+    }
+
+    addToFavortie = async () => {
+        let source = 'http://localhost:3001';
+        const resultData = await axios.get(`${source}/convert?from=${this.state.currencyFrom}&to=${this.state.currencyTo}`);
+        const currencyData = {
+            name1: this.state.currencyFrom,
+            name2: this.state.currencyTo,
+            price: resultData.data.result * this.state.amount,
+            email: this.props.auth0.user.email
+        }
+        const selectData = await axios.post(`${source}/addToFavorite`, currencyData);
+
     }
     swapHandle = (e) => {
         
@@ -113,7 +126,9 @@ class Converter extends React.Component {
                                 Convert
                     </Button>
                         </Form>
-
+                        <Button variant="primary" onClick={this.addToFavortie}>
+                    Add to Favorite
+                    </Button>
 
                         {this.state.showResult &&
                             <p>{`${this.state.amount} ${this.state.currencyFrom} = ${this.state.result} ${this.state.currencyTo}`}</p>
@@ -127,52 +142,4 @@ class Converter extends React.Component {
         )
     }
 }
-export default Converter;
-
-
-{/* <Form onSubmit={this.getConverterData}>
-
-                        <Row>
-                        <Form.Group controlId="formGroupEmail">
-                            <Form.Label>Amount</Form.Label>
-                            <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
-                            <Form.Group controlId="formGridState">
-                            </Form.Group>
-                            <Form.Control className="inputs" as="select" defaultValue="From" onChange={this.fromHandler}>
-                                <option>From</option>
-                                {this.state.currencies.map(item => {
-                                    return (
-                                        <option>{item.code} - {item.description}</option>
-                                    )
-                                })}
-                            </Form.Control>
-                            <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
-
-                            {/* <Button className='swapButton'variant="outline-primary" onClick={this.swapHandle}>
-                        <ArrowLeftRight/>
-                        </Button>
-                         */}
-
-{/* <Form.Control className="inputs" as="select" defaultValue="To" onChange={this.toHandler}>
-                                <option>To</option>
-                                {this.state.currencies.map(item => {
-                                    return (
-                                        <option>{item.code} - {item.description}</option>
-                                    )
-                                })}
-                            </Form.Control>
-                        </Form.Group>
-
-                        </Row>
-                       
-                        <Button variant="primary" type="submit" className="convert-btn">
-                            Convert
-                    </Button>
-
-
-
-
-                        {this.state.showResult &&
-                            <p>{`${this.state.amount} ${this.state.currencyFrom} = ${this.state.result} ${this.state.currencyTo}`}</p>
-                        }
-                    </Form> */}
+export default withAuth0(Converter);
