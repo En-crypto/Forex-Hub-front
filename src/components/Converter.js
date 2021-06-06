@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { MDBIcon } from 'mdb-react-ui-kit';
 
 
 class Converter extends React.Component {
@@ -69,10 +71,10 @@ class Converter extends React.Component {
         const currencyData = {
             name1: this.state.currencyFrom,
             name2: this.state.currencyTo,
-            price: resultData.data.result*this.state.amount,
-            email:this.props.auth0.user.email
+            price: resultData.data.result * this.state.amount,
+            email: this.props.auth0.user.email
         }
-        const selectData = await axios.post(`${source}/addToFavorite`,currencyData);
+        const selectData = await axios.post(`${source}/addToFavorite`, currencyData);
 
     }
 
@@ -98,7 +100,8 @@ class Converter extends React.Component {
                             <option>To</option>
                             {this.state.currencies.map(item => {
                                 return (
-                                    <option>{item.code} - {item.description}</option>
+                                    <option>  
+                                        {item.code} - {item.description}</option>
                                 )
                             })}
                         </Form.Control>
