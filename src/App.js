@@ -16,6 +16,9 @@ import './css/App.css';
 import Profile from './components/Profile';
 import Form from './components/ContactUs';
 import LineChart from './components/Chart';
+import Converter from './components/Converter';
+import Feeder from './components/Feeder';
+import Favorite from './components/Favorite';
 
 
 
@@ -43,6 +46,15 @@ class App extends React.Component {
           </Route>
           <Route exact path="/about">
               <AboutUs />
+          </Route>
+          <Route exact path = '/convert'>
+          <Converter/>
+          </Route>
+          <Route exact path = '/favorite'>
+          <Favorite/>
+          </Route>
+          <Route exact path = '/feed'>
+          <Feeder/>
           </Route>
         </Switch>
         <Footer />

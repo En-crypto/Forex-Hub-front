@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
-import { Animation } from '@devexpress/dx-react-chart';
 
 import {
     ArgumentAxis,

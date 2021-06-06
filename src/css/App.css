@@ -131,8 +131,7 @@ p{
     color: black;
 }
 .card{
-    margin-left: 80px;
-    margin-bottom: 50px;
+    margin: auto;
 
 }
 .card:hover{

@@ -61,7 +61,7 @@ class Hero extends React.Component {
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item Interval={0}>
                         <img
                             className="d-block w-100 slides"
                             src={slideFour}

@@ -9,9 +9,11 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       progress:25,
-      currentUser:{}
+      isAuthenticated:false,
+      currentUser:{},
     }
- 
+    if(this.props.auth0.isAuthenticated)
+      {this.addUser();}
   }
   addUser = async () => {
     const userData = {
@@ -22,20 +24,23 @@ class Profile extends React.Component {
     }
     let newUser = await axios.post(`http://localhost:3001/addUser`, userData);
     this.setState({
-      currentUser: JSON.parse(newUser.config.data)
+      currentUser: JSON.parse(newUser.config.data),
+      isAuthenticated:true
     })
 
     console.log(this.state.currentUser);
     // NotificationManager.success('Book Name : ' + this.state.bookName, 'Added to ' + this.props.auth0.user.email);
   }
 
+  // getUser = async () => {
+    
+  // }
+
   render() {
     return (
 
       <>
-      {this.props.auth0.isAuthenticated ? this.addUser: console.log('error')}
-      {this.state.progress && <p>Complete your profile</p>}
-      <ProgressBar animated now={this.state.progress} />
+      {/* <ProgressBar animated now={this.state.progress} /> */}
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src={this.state.currentUser.image_url} />
           <Card.Body>
@@ -53,7 +58,6 @@ class Profile extends React.Component {
           </Card.Body>
         </Card>
 
-        <Converter />
 
       </>
 

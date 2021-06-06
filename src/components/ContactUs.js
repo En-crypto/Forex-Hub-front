@@ -14,13 +14,13 @@ class Contact extends React.Component {
             userNumber: '',
             userFeedback: '',
             show: false,
-            serverRoute: process.env.REACT_APP_SERVER
+            serverRoute: 'http://localhost:3001'
         });
     }
     
     submitFun = async (event) => {
     event.preventDefault();
-    await this.setState({
+     this.setState({
       userName:event.target.userName.value,
       userEmail:event.target.userEmail.value,
       userNumber:event.target.userNumber.value,
