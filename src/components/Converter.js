@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+import { ArrowLeftRight } from 'react-bootstrap-icons';
 import { withAuth0 } from '@auth0/auth0-react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { MDBIcon } from 'mdb-react-ui-kit';
 
 
 class Converter extends React.Component {
@@ -14,9 +14,9 @@ class Converter extends React.Component {
             currencyFrom: 'USD',
             currencyTo: 'JOD',
             amount: 1,
-            result: 0,
+            result: 1,
             currencies: [],
-
+            showResult: false,
         }
         this.getSymbols();
     }
@@ -26,10 +26,12 @@ class Converter extends React.Component {
         let source = 'http://localhost:3001';
         const resultData = await axios.get(`${source}/convert?from=${this.state.currencyFrom}&to=${this.state.currencyTo}`);
         this.setState({
-            result: resultData.data
+            result: resultData.data.result * this.state.amount,
+            showResult: true
+
         })
 
-        console.log(this.state.result.result * this.state.amount);
+        console.log(this.state.result);
     }
 
 
@@ -77,45 +79,65 @@ class Converter extends React.Component {
         const selectData = await axios.post(`${source}/addToFavorite`, currencyData);
 
     }
+    swapHandle = (e) => {
+        
+        let temp = this.state.currencyTo
+        this.setState({
+            currencyFrom: temp,
+            currencyTo: this.state.currencyFrom
+        })
+    }
 
     render() {
         return (
-            <div>
-                <Form className='converter' onSubmit={this.getConverterData}>
-                    <Form.Group controlId="formGroupEmail">
-                        <Form.Label>Amount</Form.Label>
-                        <Form.Control type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
-                        <Form.Group controlId="formGridState">
-                        </Form.Group>
-                        <Form.Control as="select" defaultValue="From" onChange={this.fromHandler}>
-                            <option>From</option>
-                            {this.state.currencies.map(item => {
-                                return (
-                                    <option>{item.code} - {item.description}</option>
-                                )
-                            })}
-                        </Form.Control>
-
-                        <Form.Control as="select" defaultValue="To" onChange={this.toHandler}>
-                            <option>To</option>
-                            {this.state.currencies.map(item => {
-                                return (
-                                    <option>  
-                                        {item.code} - {item.description}</option>
-                                )
-                            })}
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Button variant="primary" type="submit">
-                        Convert
+            <div >
+                <Card className='converter' >
+                    <Card.Body>
+                        <Form onSubmit={this.getConverterData}>
+                            <Row>
+                                <Col xs={3}>
+                                    <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
+                                </Col>
+                                <Col xs={4}>
+                                    <Form.Control className="inputs" as="select" defaultValue="From" onChange={this.fromHandler}>
+                                        <option>From</option>
+                                        {this.state.currencies.map(item => {
+                                            return (
+                                                <option>{item.code} - {item.description}</option>
+                                            )
+                                        })}
+                                    </Form.Control>
+                                </Col>
+                                <Col xs={1}>
+                                    <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
+                                </Col>
+                                <Col xs={4}>
+                                    <Form.Control className="inputs" as="select" defaultValue="To" onChange={this.toHandler}>
+                                        <option>To</option>
+                                        {this.state.currencies.map(item => {
+                                            return (
+                                                <option>{item.code} - {item.description}</option>
+                                            )
+                                        })}
+                                    </Form.Control>
+                                </Col>
+                            </Row>
+                            <Button variant="primary" type="submit" className="convert-btn">
+                                Convert
                     </Button>
-                </Form>
-                <Button variant="primary" onClick={this.addToFavortie}>
+                        </Form>
+                        <Button variant="primary" onClick={this.addToFavortie}>
                     Add to Favorite
                     </Button>
 
-                {/* {this.state.result && <p>{this.state.result}</p>} */}
+                        {this.state.showResult &&
+                            <p>{`${this.state.amount} ${this.state.currencyFrom} = ${this.state.result} ${this.state.currencyTo}`}</p>
+                        }
+
+                    </Card.Body>
+                </Card>
+
+
             </div>
         )
     }

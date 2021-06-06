@@ -32,10 +32,7 @@ h6{
     width: 50%;
     margin: auto;
 }
-.converter{
-    width: 50%;
-    margin: auto;
-}
+
 
 #img-cards1{
     display: flex;
@@ -134,9 +131,9 @@ p{
     margin: auto;
 
 }
-.card:hover{
+/* .card:hover{
     bottom: 25px;
-}
+} */
 .body{
     width: 90%;
     margin: auto;
@@ -147,6 +144,44 @@ p{
     color: black;
     
 }
+
+/* converter */
+
+
+.swapButton{
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    font-weight: bolder;
+    font-size: 20px;
+    border: 1px blue solid;
+    border-radius: 50%; 
+    background-color: white;
+    color: blue;
+}
+.converter{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 60%;
+    height: 200px;
+    /* margin: auto; */
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 2px 2px #888888; */
+}
+.inputs{
+    width: 25px;
+
+
+}
+.convert-btn{
+    float: right;
+}
+
+.from-to{
+    width: 50%;
+}
+
+/* converter */
 
 
 
