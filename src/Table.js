@@ -22,7 +22,7 @@ class Table extends React.Component {
         let source = 'http://localhost:3001';
         const livePrice = await axios.get(`${source}/rate?base=${this.state.base}`);
         const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
-    
+
         this.setState({
             livePrice: Object.entries(livePrice.data.rates),
             state: historyPrice.data,
@@ -30,135 +30,132 @@ class Table extends React.Component {
     }
     getHistory = async (e) => {
         this.setState({
-            base:e.target.value,
-        } , 
-        async () => {
-            let source = 'http://localhost:3011';
-        const livePrice = await axios.get(`${source}/rate?base=${this.state.base}`);
-        const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
-    
-        this.setState({
-            livePrice: Object.entries(livePrice.data.rates),
-            state: historyPrice.data,
-        })
-        }
+            base: e.target.value,
+        },
+            async () => {
+                let source = 'http://localhost:3001';
+                const livePrice = await axios.get(`${source}/rate?base=${this.state.base}`);
+                const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
+
+                this.setState({
+                    livePrice: Object.entries(livePrice.data.rates),
+                    state: historyPrice.data,
+                })
+            }
         )
     }
 
 
     render() {
         return (
-            <div className='live' id='live'>
-                <Button onClick={this.getHistory} onChange={this.changeVal} value='USD' className='curr-btn'>USD</Button>
-                <Button onClick={this.getHistory} value='GBP' className='curr-btn'>GBP</Button>
-                <Button onClick={this.getHistory} value='EUR' className='curr-btn'>EUR</Button>
-                <Button onClick={this.getHistory} value='CAD' className='curr-btn'>CAD</Button>
-                <MDBTable hover>
-                    <MDBTableHead>
-                        <tr>
-                            <th scope='col'>State</th>
-                            <th scope='col'>Currency</th>
-                            <th scope='col'>Price to {this.state.base}<sub>(EUR by default)</sub></th>
-                            <th scope='col'>Time</th>
-                        </tr>
-                    </MDBTableHead>
-                    <MDBTableBody>
-                        {
-                            this.state.livePrice.map((item, idx) => {
-                                return (
-                                    <tr>
-                                        <th scope='row'>
-                                            {
-                                                (this.state.state[idx] === 0) ?
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                                                        <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"
-                                                            className='dash' />
-                                                    </svg>
-                                                    :
-                                                    (this.state.state[idx] === 1) ?
-                                                        <span style={{ color: 'rgb(51, 136, 0)' }}>▲</span>
-                                                        :
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
-                                                                className='down-arrow'
-                                                            />
+            <>
+                <div className='live'>
+                    <div className='hint'>
+                        <p>
+                            Choose your base currency :
+                            </p>
+                    </div>
+                    <div className='btns'>
+                        <Button onClick={this.getHistory} onChange={this.changeVal} value='USD' className='curr-btn'>USD</Button>
+                        <Button onClick={this.getHistory} value='GBP' className='curr-btn'>GBP</Button>
+                        <Button onClick={this.getHistory} value='EUR' className='curr-btn'>EUR</Button>
+                        <Button onClick={this.getHistory} value='CAD' className='curr-btn'>CAD</Button>
+                    </div>
+                    <MDBTable hover className='live-table'>
+                        <MDBTableHead>
+                            <tr>
+                                <th scope='col'>State</th>
+                                <th scope='col'>Currency</th>
+                                <th scope='col'>Price to {this.state.base}<sub>(EUR by default)</sub></th>
+                                <th scope='col'>Time</th>
+                            </tr>
+                        </MDBTableHead>
+                        <MDBTableBody>
+                            {
+                                this.state.livePrice.map((item, idx) => {
+                                    return (
+                                        <tr>
+                                            <th scope='row'>
+                                                {
+                                                    (this.state.state[idx] === 0) ?
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                            <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"
+                                                                className='dash' />
                                                         </svg>
-                                            }
+                                                        :
+                                                        (this.state.state[idx] === 1) ?
+                                                            <span style={{ color: 'rgb(51, 136, 0)' }}>▲</span>
+                                                            :
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                                                                    className='down-arrow'
+                                                                />
+                                                            </svg>
+                                                }
 
-                                        </th>
-                                        <td>{item[0]}</td>
-                                        <td>{item[1]}</td>
-                                        <td><Clock format={'hh:mm:ss'} ticking={false} timezone={'Asia/Aden'} /></td>
-                                    </tr>
-                                )
-                            })}
-                    </MDBTableBody>
-                </MDBTable>
-                <div className='home-section' id="home">
-                    <img src={HomeImg} alt='Hero' className='home' />
-                    <p id="para-home">lorem ipsum
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumv
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
-                    lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
-                </p>
+                                            </th>
+                                            <td>{item[0]}</td>
+                                            <td>{item[1]}</td>
+                                            <td><Clock format={'hh:mm:ss'} ticking={false} timezone={'Asia/Aden'} /></td>
+                                        </tr>
+                                    )
+                                })}
+                        </MDBTableBody>
+                    </MDBTable>
                 </div>
 
-                <div className='cards'>
-                    <a href="/#home">
-                        <CCard
+            </>
+            // <div className='cards'>
+            //     <a href="/#home">
+            //         <CCard
 
-                            color='light'
-                            textColor='black'
-                            className="mb-3 card"
-                            style={{ maxWidth: '18rem' }} >
-                            <CCardHeader>Explore!</CCardHeader>
-                            <CCardBody>
-                                <CCardText>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                    </CCardText>
-                            </CCardBody>
-                        </CCard>
-                    </a>
-                    <a href="/#live">
-                        <CCard
+            //             color='light'
+            //             textColor='black'
+            //             className="mb-3 card"
+            //             style={{ maxWidth: '18rem' }} >
+            //             <CCardHeader>Explore!</CCardHeader>
+            //             <CCardBody>
+            //                 <CCardText>
+            //                     Some quick example text to build on the card title and make up the
+            //                     bulk of the card's content.
+            //     </CCardText>
+            //             </CCardBody>
+            //         </CCard>
+            //     </a>
+            //     <a href="/#live">
+            //         <CCard
 
-                            color='light'
-                            textColor='black'
-                            className="mb-3 card"
-                            style={{ maxWidth: '18rem' }} >
-                            <CCardHeader>Live Updates</CCardHeader>
-                            <CCardBody>
-                                <CCardText>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                    </CCardText>
-                            </CCardBody>
-                        </CCard>
-                    </a>
-                    <a href="/#hero-btn">
-                        <CCard
+            //             color='light'
+            //             textColor='black'
+            //             className="mb-3 card"
+            //             style={{ maxWidth: '18rem' }} >
+            //             <CCardHeader>Live Updates</CCardHeader>
+            //             <CCardBody>
+            //                 <CCardText>
+            //                     Some quick example text to build on the card title and make up the
+            //                     bulk of the card's content.
+            //     </CCardText>
+            //             </CCardBody>
+            //         </CCard>
+            //     </a>
+            //     <a href="/#hero-btn">
+            //         <CCard
 
-                            color='light'
-                            textColor='black'
-                            className="mb-3 card"
-                            style={{ maxWidth: '18rem' }} >
-                            <CCardHeader>Join Us</CCardHeader>
-                            <CCardBody>
-                                <CCardText>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                    </CCardText>
-                            </CCardBody>
-                        </CCard>
-                    </a>
+            //             color='light'
+            //             textColor='black'
+            //             className="mb-3 card"
+            //             style={{ maxWidth: '18rem' }} >
+            //             <CCardHeader>Join Us</CCardHeader>
+            //             <CCardBody>
+            //                 <CCardText>
+            //                     Some quick example text to build on the card title and make up the
+            //                     bulk of the card's content.
+            //     </CCardText>
+            //             </CCardBody>
+            //         </CCard>
+            //     </a>
 
-                </div>
-            </div>
+            // </div>
         );
     }
 
