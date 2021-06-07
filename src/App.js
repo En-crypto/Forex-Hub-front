@@ -4,7 +4,6 @@ import Footer from './Footer';
 import AboutUs from './AboutUs';
 import Table from './Table';
 import Hero from './Hero';
-import './css/App.css';
 import { withAuth0 } from '@auth0/auth0-react';
 // import '@coreui/dist/css/coreui.min.css';
 import {
@@ -12,12 +11,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import './css/App.css';
 import Profile from './components/Profile';
 import Form from './components/ContactUs';
 import Converter from './components/Converter';
 import Feeder from './components/Feeder';
 import Favorite from './components/Favorite';
+import Description from './components/Description';
 
 
 
@@ -32,9 +31,8 @@ class App extends React.Component {
         <Switch>
             <Route exact path="/">
               <Hero />
-          <div className='body'>
                 <Table />
-          </div>
+                <Description/>
             </Route>
           <Route exact path="/profile">
             <Profile/>

@@ -1,13 +1,16 @@
 import React from 'react';
-import HeroImg from './img/Hero.jpg';
-import slideTwo from './img/slider2.jpg'
-import slideThree from './img/slider3.jpg'
-import slideFour from './img/slider4.jpg'
+// import HeroImg from './img/Hero.jpg';
+// import slideTwo from './img/slider2.jpg'
+// import slideThree from './img/slider3.jpg'
+// import slideFour from './img/slider4.jpg'
+
+import banner from './img/banner.png'
 
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel,Button } from 'react-bootstrap'
+import LoginButton from './LoginButton';
 
 
 class Hero extends React.Component {
@@ -16,7 +19,22 @@ class Hero extends React.Component {
         return (
 
             <div className='hero-section'>
-                <Carousel>
+                <div className='intro'>
+                    <h2>
+                        Platform for currency traders
+                    </h2>
+                    <p>
+                        Join Us Now to Access all the features
+                    </p>
+                    <LoginButton/>
+                </div>
+                <div className = 'banner'>
+
+                    <img src = {banner} alt = 'banner'>
+                    </img>
+
+                </div>
+                {/* <Carousel>
                     <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100 slides"
@@ -74,7 +92,7 @@ class Hero extends React.Component {
                     </Carousel.Item>
                     <Button id="hero-btn" className='hero-btn' href='https://mohiesen.eu.auth0.com/u/signup?state=hKFo2SBEM0psRjcwYklEMGRxTVpaLXVpcmxxMHR1WDljbjZtaaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDMxSVc2UXZhcVU4M0ZaZTZhUHhMejJUeE5tWUVzZmtwo2NpZNkgN2Jwc0V5NE5SUjZFQlVhZWRZdXRtamNPajZKc1k0aDg'>Join Us</Button>
 
-                </Carousel>
+                </Carousel> */}
             </div>
         )
     }
