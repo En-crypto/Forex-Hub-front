@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import { ArrowLeftRight } from 'react-bootstrap-icons';
 import { withAuth0 } from '@auth0/auth0-react';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 
 class Converter extends React.Component {
@@ -90,7 +89,7 @@ class Converter extends React.Component {
 
     render() {
         return (
-            <div >
+            <div className='converter-c'>
                 <Card className='converter' >
                     <Card.Body>
                         <Form onSubmit={this.getConverterData}>

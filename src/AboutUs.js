@@ -12,7 +12,8 @@ import { SocialIcon } from 'react-social-icons';
 class AboutUs extends React.Component {
     render() {
         return (
-            <div id='img-cards'>
+            <div className='img-cards'>
+                <div className='jumb'>
                 <Jumbotron fluid id="team-intro">
                     <Container>
                         <h1>Meet Our Team</h1>
@@ -22,6 +23,7 @@ class AboutUs extends React.Component {
                         </p>
                     </Container>
                 </Jumbotron>
+                </div>
                 <div id='img-cards1'>
                     <Card className='img-card' style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={AlaaImg} alt="AlaaImg" className="card-img" />
