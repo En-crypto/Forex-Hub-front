@@ -49,23 +49,23 @@ class Footer extends React.Component {
             <div className="footer-right">
 
               <p className="footer-company-about">
-                <span>About the company</span>
-                  Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                <span>About the App : </span>
+                  We aspire to give you various sevices about currencies , and what relates to it .
                 </p>
 
-            <div className="footer-icons">
+              <div className="footer-icons">
 
-              <SocialIcon network="facebook" url="https://github.com/Haneenabonser" />
-              <SocialIcon network="instagram" url="https://github.com/Haneenabonser" />
-              <SocialIcon network="twitter" url="https://github.com/Haneenabonser" />
-              <SocialIcon network="google" url="https://github.com/Haneenabonser" />
+                <SocialIcon network="facebook" url="https://github.com/Haneenabonser" />
+                <SocialIcon network="instagram" url="https://github.com/Haneenabonser" />
+                <SocialIcon network="twitter" url="https://github.com/Haneenabonser" />
+                <SocialIcon network="google" url="https://github.com/Haneenabonser" />
 
-            </div>
+              </div>
 
             </div>
 
           </div>
-            <hr></hr>
+          <hr></hr>
           <p className="footer-company-name">ForexHub © 2021</p>
         </footer>
       </>
