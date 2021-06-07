@@ -613,7 +613,7 @@ span{
     border-radius: 0 !important;
 	flex: 1 1 auto;
     min-height: 1px;
-    padding: 1.25rem;
+    padding: 1.25rem ;
    margin-top: 10vmin;
    
 }
@@ -621,6 +621,37 @@ span{
 .bb{
 	width: 10rem;
 }
+/* Contact us styling */
+
+/* Maryam profile styling */
+.profileImg{
+    margin-left: 40%;
+    margin-top: 2%;
+border-radius: 50%;
+width: 17%;
+height: 17%;
+}
+
+.card6{
+    margin-left: 20%;
+    margin-top: 2%;
+    padding: 0;
+    display: inline;
+}
+.card7{
+    margin-right: 20%;
+    margin-top: -10.9%;
+    padding: 0;
+    display: inline;
+}
+.proBut{
+margin-left: 44.2%;
+}
+.ccc{
+    height: 5rem;
+}
+
+/* Maryam profile styling */
 /* Feedback styling */
 
 .feedback{

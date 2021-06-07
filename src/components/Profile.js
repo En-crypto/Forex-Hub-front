@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Button ,ProgressBar} from 'react-bootstrap';
+import { Card, Button ,ProgressBar,ListGroup} from 'react-bootstrap';
 import Converter from './Converter';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-
+import '../css/App.css'
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -27,42 +27,37 @@ class Profile extends React.Component {
       currentUser: JSON.parse(newUser.config.data),
       isAuthenticated:true
     })
-
     console.log(this.state.currentUser);
-    // NotificationManager.success('Book Name : ' + this.state.bookName, 'Added to ' + this.props.auth0.user.email);
   }
-
-  // getUser = async () => {
-    
-  // }
 
   render() {
     return (
-
       <>
-      {/* <ProgressBar animated now={this.state.progress} /> */}
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={this.state.currentUser.image_url} />
-          <Card.Body>
-            <Card.Title>{this.state.currentUser.name}</Card.Title>
-            <Card.Text>
-              some information and intersets about the person
-    </Card.Text>
-            <Card.Title>
-            Email: {this.state.currentUser.email}
-    </Card.Title>
-            <Card.Text>
-              Date : {Date.now}
-    </Card.Text>
-            <Button variant="primary" >Favorite Currency</Button>
-          </Card.Body>
-        </Card>
+    <img className="profileImg" src={this.state.currentUser.image_url}/>
+            <Card className="card6" style={{ width: '22rem' }}>
+  <ListGroup variant="flush">
+    <ListGroup.Item className="ccc">
+    <p className="profileName"> Full Name: {this.state.currentUser.name}</p>
+    </ListGroup.Item>
+    <ListGroup.Item className="ccc">
+    <p className="profileEmail">Email: {this.state.currentUser.email} </p>
 
-
+    </ListGroup.Item>
+  </ListGroup>
+</Card>
+<Card className="card7" style={{ width: '22rem' }}>
+  <ListGroup variant="flush" >
+    <ListGroup.Item className="ccc">
+    <p className="profileName"> Full Name: {this.state.currentUser.name}</p>
+    </ListGroup.Item>
+    <ListGroup.Item className="ccc">
+    <p className="profileEmail">Email: {this.state.currentUser.email} </p>
+    </ListGroup.Item>
+  </ListGroup>
+</Card>
+            <Button className="proBut" variant="outline-success" >Favorite Currency</Button>
       </>
-
     )
   }
 }
-
 export default withAuth0(Profile);
