@@ -44,8 +44,8 @@ function Header(props) {
             <MDBNavbarLink href='#'><Link to="/profile">Profile</Link></MDBNavbarLink>
             }
             <MDBNavbarLink href='#'><Link to="/convert">Converter</Link></MDBNavbarLink>
-            {isAdmin && 
-            <MDBNavbarLink href='#'><Link to="/feed">FeedBack</Link></MDBNavbarLink>}
+            {/* isAdmin &&  */}
+            <MDBNavbarLink href='#'><Link to="/feed">FeedBack</Link></MDBNavbarLink>
             {props.auth0.isAuthenticated && 
             <MDBNavbarLink href='#'><Link to="/favorite">Favorite</Link></MDBNavbarLink>}
             <MDBNavbarLink className='nav' href='#'><Link to="/contact">Contact Us</Link></MDBNavbarLink>

@@ -20,12 +20,13 @@ class Contact extends React.Component {
     
     submitFun = async (event) => {
     event.preventDefault();
-     this.setState({
+    await this.setState({
       userName:event.target.userName.value,
       userEmail:event.target.userEmail.value,
       userNumber:event.target.userNumber.value,
       userFeedback:event.target.userFeedback.value,
       show:true,
+     
 
       
     })
@@ -38,10 +39,7 @@ class Contact extends React.Component {
 
     const newFeedback = await axios.post(`${this.state.serverRoute}/contactUs`,feedbackData)
     
-    console.log('hiiiiiiiiiiii');
-  console.log(event.target.userEmail.value);
-  console.log(this.state.userEmail);
-  console.log(this.state.userName);
+
 }
 
 
