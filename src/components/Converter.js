@@ -121,11 +121,11 @@ class Converter extends React.Component {
                                     </Form.Control>
                                 </Col>
                             </Row>
-                            <Button variant="primary" type="submit" className="convert-btn">
+                            <Button variant="primary" type="submit" className = 'mybtn'>
                                 Convert
-                    </Button>
+                    </Button >
                         </Form>
-                        <Button variant="primary" onClick={this.addToFavortie}>
+                        <Button variant="primary" onClick={this.addToFavortie} className = 'mybtn'>
                     Add to Favorite
                     </Button>
 
