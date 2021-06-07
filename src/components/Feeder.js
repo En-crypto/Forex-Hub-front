@@ -21,8 +21,6 @@ class Feeder extends React.Component {
         this.setState({
             feeds: userFeed.data
         })
-        console.log(userFeed.data);
-
     }
 
 
@@ -33,7 +31,7 @@ class Feeder extends React.Component {
         const source = 'http://localhost:3001';
 
         let newfeeds = await axios.delete(`${source}/deletefeed/${index}`, { params: userEmail })
-
+            this.getFeedBack();
         this.setState({
             feeds: newfeeds.data
         })
