@@ -52,8 +52,8 @@ closeFunction = async (e)=>{
 render() {
     
     return (
-        <div>
-                {/* <p>To contact us, you can fill out the form and we will respond as soon as possible</p> */}
+        <div className='contact'>
+                <h2>Give Us Your Feed Back : </h2>
                 <Card className="text-center">
   <Card.Header> To contact us, you can fill out the form and we will respond as soon as possible </Card.Header>
   <Card.Body>

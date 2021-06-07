@@ -228,13 +228,10 @@ a:hover{
 
 
 /* header */
-.logging{
+/* .logging{
     float: right;
-}
-#social-icon{
-    width: 20px !important;
-    height: 20px !important;
-}
+} */
+
 .up-arrow{
     color: green;
 }
@@ -345,46 +342,6 @@ p{
     width: 90%;
     margin: auto;
 }
-
-
-/* converter */
-
-
-.swapButton{
-    width: 40px;
-    height: 40px;
-    padding: 4px;
-    font-weight: bolder;
-    font-size: 20px;
-    border: 1px blue solid;
-    border-radius: 50%; 
-    background-color: white;
-    color: blue;
-}
-.converter{
-    margin-top: 50px;
-    margin-bottom: 100px;
-    width: 60%;
-    height: 200px;
-    /* margin: auto; */
-    border-radius: 5px;
-    /* box-shadow: 2px 2px 2px 2px #888888; */
-}
-.inputs{
-    width: 25px;
-
-
-}
-.convert-btn{
-    float: right;
-}
-
-.from-to{
-    width: 50%;
-}
-
-/* converter */
-
 
 
 /* footer */
@@ -664,4 +621,89 @@ span{
 .bb{
 	width: 10rem;
 }
-/* Contact us styling */
+/* Feedback styling */
+
+.feedback{
+    width: 100%;
+    height: 100%;
+    padding: 200px 0;
+}
+
+/* End */
+
+
+/* Contact Us */
+.contact{
+    width: 100%;
+    height: 100%;
+    padding: 200px 0;
+}
+
+.contact h2 {
+    text-align: center;
+}
+/* End */
+
+/* About Us */
+.img-cards{
+    width: 100%;
+    height: 100%;
+    padding: 200px 0;
+}
+
+.jumb{
+    padding-bottom: 50px;
+}
+
+/*  */
+
+
+/* converter */
+
+.converter-c{
+    width: 100%;
+    height: 100%;
+    padding: 200px 0;
+}
+.swapButton{
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    font-weight: bolder;
+    font-size: 20px;
+    border: 1px blue solid;
+    border-radius: 50%; 
+    background-color: white;
+    color: blue;
+}
+.converter{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 60%;
+    height: 40vh;
+    /* margin: auto; */
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 2px 2px #888888; */
+}
+.inputs{
+    width: 25px;
+
+
+}
+.convert-btn{
+    float: right;
+}
+
+.from-to{
+    width: 50%;
+}
+
+/* converter */
+
+/* Favorite */
+.favorite{
+    width: 100%;
+    height: 100%;
+    padding: 200px 0;
+}
+/*  */
