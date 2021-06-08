@@ -50,7 +50,7 @@ class Table extends React.Component {
     render() {
         return (
             <>
-                <div className='live'>
+                <div className='live'id="live">
                     <div className='hint'>
                         <p>
                             Choose your base currency :
