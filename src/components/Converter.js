@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button, Card, Row, Col,Jumbotron,Container } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col, Jumbotron, Container } from 'react-bootstrap';
 import { ArrowLeftRight } from 'react-bootstrap-icons';
 import { withAuth0 } from '@auth0/auth0-react';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 
 class Converter extends React.Component {
@@ -16,6 +17,7 @@ class Converter extends React.Component {
             result: 1,
             currencies: [],
             showResult: false,
+            swap : false
         }
         this.getSymbols();
     }
@@ -55,8 +57,6 @@ class Converter extends React.Component {
         this.setState({
             currencyFrom: e.target.value.substring(0, 3)
         })
-
-        console.log(this.state.currencyFrom);
     }
 
     amountHandler = (e) => {
@@ -76,6 +76,7 @@ class Converter extends React.Component {
             email: this.props.auth0.user.email
         }
         const selectData = await axios.post(`${source}/addToFavorite`, currencyData);
+        NotificationManager.success('Added to favorite', 'Succesful');
 
     }
     swapHandle = (e) => {
@@ -83,81 +84,132 @@ class Converter extends React.Component {
         let temp = this.state.currencyTo
         this.setState({
             currencyFrom: temp,
-            currencyTo: this.state.currencyFrom
+            currencyTo: this.state.currencyFrom,
+            swap:true
         })
+
+        if(this.state.swap){
+            this.setState({
+                swap:false
+            })
+        }
+            else{
+                this.setState({
+                    swap:true
+                })
+            }
+
+            console.log(this.state.swap);
     }
 
     render() {
         return (
             <div>
-                    <div className='jumb'>
-                <Jumbotron fluid id="team-intro">
-                    <Container class = 'converter-head'>
-                        <h2>About The Converter</h2>
-                        <p>
-                           Here is a simple money converter with hourly updated exchange rates <br></br>
+                <NotificationContainer />
+                <div className='jumb'>
+                    <Jumbotron fluid id="team-intro">
+                        <Container class='converter-head'>
+                            <h2>About The Converter</h2>
+                            <p>
+                                Here is a simple money converter with hourly updated exchange rates <br></br>
                            Enter an amount of money in the box, select your currencies from the drop-down lists. DONE!
                         </p>
-                    </Container>
-                </Jumbotron>
+                        </Container>
+                    </Jumbotron>
                 </div>
-                 <div className='converter-c'>
-                <Card className='converter'>
-                    <Card.Body>
-                        <Form onSubmit={this.getConverterData}>
-                            <Row>
-                                <Col xs={3}>
-                                    <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
-                                </Col>
-                                <Col xs={4}>
-                                    <Form.Control className="inputs" as="select" defaultValue="From" onChange={this.fromHandler}>
-                                        <option>From</option>
-                                        {this.state.currencies.map(item => {
-                                            return (
-                                                <option>{item.code} - {item.description}</option>
-                                            )
-                                        })}
-                                    </Form.Control>
-                                </Col>
-                                <Col xs={1}>
-                                    <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
-                                </Col>
-                                <Col xs={4}>
-                                    <Form.Control className="inputs" as="select" defaultValue="To" onChange={this.toHandler}>
-                                        <option>To</option>
-                                        {this.state.currencies.map(item => {
-                                            return (
-                                                <option>{item.code} - {item.description}</option>
-                                            )
-                                        })}
-                                    </Form.Control>
-                                </Col>
-                            </Row>
-                            <Button variant="primary" type="submit" className='mybtn one'>
-                                Convert
+                <div className='converter-c'>
+                    <Card className='converter'>
+                        <Card.Body>
+                            {this.state.swap ? <div>
+                                                            <Form onSubmit={this.getConverterData}>
+                                                            <Row>
+                                                                <Col xs={3}>
+                                                                    <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
+                                                                </Col>
+                                                                <Col xs={4}>
+                                                                    <Form.Control className="inputs" as="select"  onChange={this.fromHandler} selected>
+                                                                        {this.state.currencies.map(item => {
+                                                                            return (
+                                                                                <option >{item.code} - {item.description}</option>
+                                                                            )
+                                                                        })}
+                                                                    </Form.Control>
+                                                                </Col>
+                                                                <Col xs={1}>
+                                                                    <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
+                                                                </Col>
+                                                                <Col xs={4}>
+                                                                    <Form.Control className="inputs" as="select"  onChange={this.toHandler} selected>
+                                                                        {this.state.currencies.map(item => {
+                                                                            return (
+                                                                                <option>{item.code} - {item.description}</option>
+                                                                            )
+                                                                        })}
+                                                                    </Form.Control>
+                                                                </Col>
+                                                            </Row>
+                                                            <Button variant="primary" type="submit" className='mybtn one'>
+                                                                Convert
+                                                </Button >
+                                                        </Form>
+                                                        </div>
+                                                            :
+                                                            <div>
+                            <Form onSubmit={this.getConverterData}>
+                                <Row>
+                                    <Col xs={3}>
+                                        <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
+                                    </Col>
+                                    <Col xs={4}>
+                                        <Form.Control className="inputs" as="select"  onChange={this.toHandler} selected>
+                                            {this.state.currencies.map(item => {
+                                                return (
+                                                    <option>{item.code} - {item.description}</option>
+                                                )
+                                            })}
+                                        </Form.Control>
+                                    </Col>
+                                    <Col xs={1}>
+                                        <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
+                                    </Col>
+                                    <Col xs={4}>
+                                        <Form.Control className="inputs" as="select"  onChange={this.fromHandler} selected>
+                                            {this.state.currencies.map(item => {
+                                                return (
+                                                    <option>{item.code} - {item.description}</option>
+                                                )
+                                            })}
+                                        </Form.Control>
+                                    </Col>
+
+                                </Row>
+                                <Button variant="primary" type="submit" className='mybtn one'>
+                                    Convert
                     </Button >
-                        </Form>
-                        {this.props.auth0.isAuthenticated &&
-                            <Button variant="primary" onClick={this.addToFavortie} className='mybtn two'>
-                                Add to Favorite
+                            </Form>
+                            </div>
+                            }
+                            {this.props.auth0.isAuthenticated &&
+                                <Button variant="primary" onClick={this.addToFavortie} className='mybtn two'>
+                                    Add to Favorite
                             </Button>}
 
 
-                        {this.state.showResult &&
-                            <p className="convert-from">{`${this.state.amount} ${this.state.currencyFrom} =`}</p>
-                        }
-                        {this.state.showResult &&
-                            <p className="convert-to">{` ${this.state.result} ${this.state.currencyTo}`}</p>
-                        }
+                            {this.state.showResult &&
+                                <p className="convert-from">{`${this.state.amount} ${this.state.currencyFrom} =`}</p>
+                            }
+                            {this.state.showResult &&
+                                <p className="convert-to">{` ${this.state.result} ${this.state.currencyTo}`}</p>
+                            }
 
-                    </Card.Body>
-                </Card>
+                        </Card.Body>
+                    </Card>
 
 
+                </div>
             </div>
-            </div>
 
-           
+
         )
     }
 }

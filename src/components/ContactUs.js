@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form'
 import {Button, Card , Modal} from 'react-bootstrap/';
 import '../css/App.css';
 import axios from 'axios';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 // import CountactUsCss from ''
 
 class Contact extends React.Component {
@@ -38,7 +40,7 @@ class Contact extends React.Component {
     }
 
     const newFeedback = await axios.post(`${this.state.serverRoute}/contactUs`,feedbackData)
-    
+    NotificationManager.info('Message Received' , 'We will get back to you soon' , 3000)
 
 }
 
@@ -53,10 +55,11 @@ render() {
     
     return (
         <div className='contact'>
+            <NotificationContainer/>
                 <h2>Give Us Your Feed Back : </h2>
                 <Card className="text-center">
-  <Card.Header> To contact us, you can fill out the form and we will respond as soon as possible </Card.Header>
-  <Card.Body>
+                <Card.Header> To contact us, you can fill out the form and we will respond as soon as possible </Card.Header>
+                <Card.Body>
                 <Form className='form' onSubmit={this.submitFun}>
                     <Form.Group>
                         <Form.Control className="col" type="text" placeholder="Enter Your name" name="userName" value={this.props.userName} />
@@ -80,16 +83,6 @@ render() {
 
 </Card>
 
-<Modal show={this.state.show}>
- 
-      <Modal.Body>
-        <p>
-        Thank you {this.state.userName} for your feedback......
-        </p>
-      </Modal.Body>
-        <Button className="bb" variant="outline-info"  onClick={this.closeFunction}>Close</Button>
-      
-    </Modal>
 
 
             </div>

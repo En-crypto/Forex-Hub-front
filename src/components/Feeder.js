@@ -4,6 +4,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table'
 // import Feedback from 'react-bootstrap/esm/Feedback';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 
 class Feeder extends React.Component {
@@ -35,11 +36,13 @@ class Feeder extends React.Component {
         this.setState({
             feeds: newfeeds.data,
         })
+        NotificationManager.warning('FeedBack removed', 'Make sure to fix the issue', 3000);
     }
 
     render() {
         return (
             <>
+            <NotificationContainer/>
                 <div className='feedback'>
                     
                     

@@ -66,12 +66,18 @@ function Header(props) {
           <Nav.Link>
             <Link to="/convert">Converter</Link>
           </Nav.Link>
+          {
+            isAdmin &&
           <Nav.Link >
             <Link to="/feed">FeedBack</Link>
           </Nav.Link>
+          }
+          {
+            props.auth0.isAuthenticated &&
           <Nav.Link >
             <Link to="/favorite">Favorite</Link>
           </Nav.Link>
+          }
           <Nav.Link >
             <Link to="/contact">Contact Us</Link>
           </Nav.Link>

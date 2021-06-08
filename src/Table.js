@@ -67,7 +67,7 @@ class Table extends React.Component {
                             <tr>
                                 <th scope='col'>State</th>
                                 <th scope='col'>Currency</th>
-                                <th scope='col'>Price to {this.state.base}<sub>(EUR by default)</sub></th>
+                                <th scope='col'>Price to {this.state.base}</th>
                                 <th scope='col'>Time</th>
                             </tr>
                         </MDBTableHead>

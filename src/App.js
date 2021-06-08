@@ -16,7 +16,7 @@ import Converter from './components/Converter';
 import Feeder from './components/Feeder';
 import Favorite from './components/Favorite';
 import Description from './components/Description';
-
+import 'react-notifications/lib/notifications.css';
 
 
 class App extends React.Component {

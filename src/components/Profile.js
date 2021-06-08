@@ -8,7 +8,6 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progress: 25,
       isAuthenticated: false,
       currentUser: {},
     }
@@ -42,10 +41,10 @@ class Profile extends React.Component {
           <Card className="card6" style={{ width: '22rem' }}>
             <ListGroup variant="flush">
               <ListGroup.Item className="ccc">
-                <p className="profileName"> Full Name: {this.state.currentUser.name}</p>
+                <p className="profileName"> First Name : {this.props.auth0.user.given_name}</p>
               </ListGroup.Item>
               <ListGroup.Item className="ccc">
-                <p className="profileEmail">Email: {this.state.currentUser.email} </p>
+                <p className="profileEmail">Email : {this.props.auth0.user.email} </p>
 
               </ListGroup.Item>
             </ListGroup>
@@ -53,14 +52,14 @@ class Profile extends React.Component {
           <Card className="card7" style={{ width: '22rem' }}>
             <ListGroup variant="flush" >
               <ListGroup.Item className="ccc">
-                <p className="profileName"> Full Name: {this.state.currentUser.name}</p>
+                <p className="profileName"> Last Name : {this.props.auth0.user.family_name}</p>
               </ListGroup.Item>
               <ListGroup.Item className="ccc">
-                <p className="profileEmail">Email: {this.state.currentUser.email} </p>
+                <p className="profileEmail">Updated it : {this.props.auth0.user.updated_at} </p>
               </ListGroup.Item>
             </ListGroup>
           </Card>
-          <Button className="proBut" variant="outline-success" >Favorite Currency</Button>
+          <Button className="proBut" variant="outline-success" href='/favorite'>Favorite Currency<sub></sub></Button>
         </div>
       </>
     )
