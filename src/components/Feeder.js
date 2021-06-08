@@ -10,7 +10,7 @@ class Feeder extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            feeds: []
+            feeds: [],
         }
         this.getFeedBack();
     }
@@ -19,7 +19,7 @@ class Feeder extends React.Component {
         const source = 'http://localhost:3001';
         let userFeed = await axios.get(`${source}/getfeed`);
         this.setState({
-            feeds: userFeed.data
+            feeds: userFeed.data,
         })
     }
 
@@ -33,7 +33,7 @@ class Feeder extends React.Component {
         let newfeeds = await axios.delete(`${source}/deletefeed/${index}`, { params: userEmail })
             this.getFeedBack();
         this.setState({
-            feeds: newfeeds.data
+            feeds: newfeeds.data,
         })
     }
 
@@ -41,8 +41,11 @@ class Feeder extends React.Component {
         return (
             <>
                 <div className='feedback'>
-
-                    <Table striped bordered hover variant="dark">
+                    
+                    
+                    {this.state.feeds.length >0 &&
+                    
+                    <Table striped bordered hover >
                         <thead style={{ textAlign: "center" }}>
                             <tr>
                                 <th >User Name</th>
@@ -70,6 +73,8 @@ class Feeder extends React.Component {
 
                         </tbody>
                     </Table>
+                    }
+
                 </div>
 
             </>
