@@ -15,6 +15,7 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogOut";
 import { withAuth0 } from '@auth0/auth0-react';
 import { Navbar, Nav } from 'react-bootstrap';
+import './css/Nav.css';
 
 function Header(props) {
   // const [showNavSecond, setShowNavSecond] = useState(false);
@@ -61,7 +62,7 @@ function Header(props) {
     // </MDBNavbar>
 
     <Navbar bg="light" variant="light">
-      <div className='container'>
+      <div className='container' id='top'>
         <Navbar.Brand href="#home"><h3>Forex<span>Hub</span></h3></Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link>

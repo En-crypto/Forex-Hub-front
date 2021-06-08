@@ -5,7 +5,6 @@ import AboutUs from './AboutUs';
 import Table from './Table';
 import Hero from './Hero';
 import { withAuth0 } from '@auth0/auth0-react';
-// import '@coreui/dist/css/coreui.min.css';
 import {
   BrowserRouter as Router,
   Switch,
