@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { SocialIcon } from 'react-social-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import './css/Footer.css'
 
 
 
@@ -11,19 +9,66 @@ class Footer extends React.Component {
   render() {
     return (
       <>
-        <FontAwesomeIcon icon={["fal", "coffee"]} />
-        <footer className="footer-distributed">
-          <div className='ftr-logo'>
+
+        <div className='space'></div>
+        <div class="w3hubs-footer">
+
+          <div class="w3hubs-icon">
+            <ul>
+              <li><SocialIcon network="facebook" url="https://github.com/Haneenabonser" className = 'soc-icon'/></li>
+              <li><SocialIcon network="instagram" url="https://github.com/Haneenabonser" className = 'soc-icon'/>
+              </li>
+              <li>
+              <SocialIcon network="twitter" url="https://github.com/Haneenabonser" className = 'soc-icon'/>
+              </li>
+              <li>
+              <SocialIcon network="google" url="https://github.com/Haneenabonser" className = 'soc-icon'/>
+              </li>
+            </ul>
+          </div>
+          <div class="w3hubs-nav">
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li>
+              <Link to="/about">Profile</Link>
+              </li>
+              <li>
+              <Link to="/contact">Converter</Link>
+              </li>
+              <li>
+              <Link to="/contact">Contact Us</Link>
+              </li>
+              <li>
+              <Link to="/contact">About Us</Link>
+              </li>
+
+
+
+            </ul>
+
+            <div className='ftr-logo'>
             <h3>Forex<span>Hub</span></h3>
           </div>
+            <h4>
+            En-crypto <i class="fa fa-copyright" aria-hidden="true"></i> 2021
+          </h4>
+          </div>
+
+          <div class="w3hubs-nav2">
+            <ul>
+
+              <li><a href="#top" title="To Top"><i class="fa fa-chevron-down"></i></a></li>
+
+
+            </ul>
+          </div>
+        </div>
+
+        {/* <FontAwesomeIcon icon={["fal", "coffee"]} />
+        <footer className="footer-distributed">
+
           <div className='ftr-flex'>
             <div className="footer-left">
-
-              <Link to="/">Home</Link>
-              <Link to="/about">Profile</Link>
-              <Link to="/contact">Converter</Link>
-              <Link to="/contact">Contact Us</Link>
-              <Link to="/contact">About Us</Link>
 
             </div>
 
@@ -55,10 +100,7 @@ class Footer extends React.Component {
 
               <div className="footer-icons">
 
-                <SocialIcon network="facebook" url="https://github.com/Haneenabonser" />
-                <SocialIcon network="instagram" url="https://github.com/Haneenabonser" />
-                <SocialIcon network="twitter" url="https://github.com/Haneenabonser" />
-                <SocialIcon network="google" url="https://github.com/Haneenabonser" />
+                
 
               </div>
 
@@ -67,7 +109,7 @@ class Footer extends React.Component {
           </div>
           <hr></hr>
           <p className="footer-company-name">ForexHub © 2021</p>
-        </footer>
+        </footer> */}
       </>
     )
   }

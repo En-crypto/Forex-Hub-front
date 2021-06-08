@@ -11,6 +11,7 @@ import banner from './img/banner.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel,Button } from 'react-bootstrap'
 import LoginButton from './LoginButton';
+import './css/Hero.css';
 
 
 class Hero extends React.Component {

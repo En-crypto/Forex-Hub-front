@@ -7,6 +7,7 @@ import Clock from 'react-live-clock';
 import { CCard, CCardBody, CCardHeader, CCardText, CCardTitle } from '@coreui/react';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import './css/Home.css';
 
 class Table extends React.Component {
     constructor(props) {
