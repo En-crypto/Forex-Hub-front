@@ -729,41 +729,72 @@ margin-left: 44.2%;
 .swapButton{
     width: 40px;
     height: 40px;
-    padding: 4px;
+    padding: 3px;
     font-weight: 900;
     font-size: 21px;
-    border: 1px black solid;
+    border: 1px #139446 solid;
     border-radius: 50%; 
     background-color: white;
     color: #139446;
+    transition: 0.70s;
+    -webkit-transition: 0.70s;
+    -moz-transition: 0.70s;
+    -ms-transition: 0.70s;
+    -o-transition: 0.70s;
 }
 
 .swapButton:hover{
     color: white;
-    background-color: #5CD68D;
+    background-color: #5cd68dce;
+    transition: 0.70s;
+    -webkit-transition: 0.70s;
+    -moz-transition: 0.70s;
+    -ms-transition: 0.70s;
+    -o-transition: 0.70s;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 .converter{
     margin-top: 50px;
     margin-bottom: 100px;
     width: 60%;
     height: 40vh;
-    /* margin: auto; */
-    border-radius: 5px;
-    /* box-shadow: 2px 2px 2px 2px #888888; */
+    /* border: 1px solid  #5cd68dce !important;  */
+    border-radius: 5px ;
+    box-shadow: 1px 1px 1px 1px #888888;
 }
-.inputs{
-    width: 25px;
 
-
-}
 .convert-btn{
     float: right;
 }
 
-.from-to{
-    width: 50%;
+.convert-from{
+    font-size: 25px;
+    font-weight: bolder;
+    margin-left: 65%;
+    margin-top: -11%;
+}
+.convert-to{
+    font-size: 35px;
+    font-weight: bolder;
+    margin-left: 65%;
+    margin-top: -2%;
+
+}
+.one{
+    margin-top: 7% !important;
 }
 
+.two{
+    margin-top: 2% !important;
+
+}
+.inputs{
+    font-weight: bolder !important;
+}
 /* converter */
 
 /* Favorite */

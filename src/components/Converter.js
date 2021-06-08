@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col,Jumbotron,Container } from 'react-bootstrap';
 import { ArrowLeftRight } from 'react-bootstrap-icons';
 import { withAuth0 } from '@auth0/auth0-react';
 
@@ -79,7 +79,7 @@ class Converter extends React.Component {
 
     }
     swapHandle = (e) => {
-        
+
         let temp = this.state.currencyTo
         this.setState({
             currencyFrom: temp,
@@ -89,8 +89,20 @@ class Converter extends React.Component {
 
     render() {
         return (
-            <div className='converter-c'>
-                <Card className='converter' >
+            <div>
+                    <div className='jumb'>
+                <Jumbotron fluid id="team-intro">
+                    <Container>
+                        <h1>About The Converter</h1>
+                        <p>
+                           Here is a simple money converter with hourly updated exchange rates <br></br>
+                           Enter an amount of money in the box, select your currencies from the drop-down lists. DONE!
+                        </p>
+                    </Container>
+                </Jumbotron>
+                </div>
+                 <div className='converter-c'>
+                <Card className='converter'>
                     <Card.Body>
                         <Form onSubmit={this.getConverterData}>
                             <Row>
@@ -121,16 +133,21 @@ class Converter extends React.Component {
                                     </Form.Control>
                                 </Col>
                             </Row>
-                            <Button variant="primary" type="submit" className = 'mybtn'>
+                            <Button variant="primary" type="submit" className='mybtn one'>
                                 Convert
                     </Button >
                         </Form>
-                        <Button variant="primary" onClick={this.addToFavortie} className = 'mybtn'>
-                    Add to Favorite
-                    </Button>
+                        {this.props.auth0.isAuthenticated &&
+                            <Button variant="primary" onClick={this.addToFavortie} className='mybtn two'>
+                                Add to Favorite
+                            </Button>}
+
 
                         {this.state.showResult &&
-                            <p>{`${this.state.amount} ${this.state.currencyFrom} = ${this.state.result} ${this.state.currencyTo}`}</p>
+                            <p className="convert-from">{`${this.state.amount} ${this.state.currencyFrom} =`}</p>
+                        }
+                        {this.state.showResult &&
+                            <p className="convert-to">{` ${this.state.result} ${this.state.currencyTo}`}</p>
                         }
 
                     </Card.Body>
@@ -138,6 +155,9 @@ class Converter extends React.Component {
 
 
             </div>
+            </div>
+
+           
         )
     }
 }
