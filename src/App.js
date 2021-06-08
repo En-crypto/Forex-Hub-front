@@ -20,9 +20,22 @@ import Description from './components/Description';
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      favData : [],
+
+    }
+  }
+  getFavData = (favData) => {
+    this.setState({
+      favData : favData
+    })
+    console.log(this.state.favData);
+  }
 
   render() {
-    console.log('app', this.props)
+  
     return (
       
       <Router>
@@ -43,10 +56,10 @@ class App extends React.Component {
               <AboutUs />
           </Route>
           <Route exact path = '/convert'>
-          <Converter/>
+          <Converter favoriteData = {this.getFavData}/>
           </Route>
           <Route exact path = '/favorite'>
-          <Favorite/>
+          <Favorite favData = {this.state.favData}/>
           </Route>
           <Route exact path = '/feed'>
           <Feeder/>
