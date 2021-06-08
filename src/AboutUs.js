@@ -19,7 +19,7 @@ class AboutUs extends React.Component {
                 <div className='jumb'>
                     <Jumbotron fluid id="team-intro">
                         <Container>
-                            <h1>Meet Our Team</h1>
+                            <h2>Meet Our Team</h2>
                             <p id='para'>
                             we are a sincere company with a straightforward vision . we believe that there is an amazing amount to be learned by working in the "real world" web production environment,alongside other like minded teens .<br></br>
                             <br></br>

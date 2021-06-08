@@ -54,10 +54,10 @@
     font-size: 30px;
 }
 
-.social-icon{
+/* .social-icon{
     margin-top: 10px;
     transition-duration: 0.4s;
-}
+} */
 
 .social-icon:hover{
     transform: translateX(0px) rotate(360deg) ;
@@ -65,9 +65,6 @@
 
 }
 
-.jumb{
-    margin-top: -8%;
-}
 
 #para{
     text-align: justify;
