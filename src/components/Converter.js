@@ -105,6 +105,40 @@ class Converter extends React.Component {
                         </Container>
                     </Jumbotron>
                 </div>
+                 <div className='converter-c'>
+                <Card className='converter' id = 'converter'>
+                    <Card.Body>
+                        <Form onSubmit={this.getConverterData}>
+                            <Row>
+                                <Col xs={3}>
+                                    <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
+                                </Col>
+                                <Col xs={4}>
+                                    <Form.Control className="inputs" as="select" defaultValue="From" onChange={this.fromHandler}>
+                                        <option>From</option>
+                                        {this.state.currencies.map(item => {
+                                            return (
+                                                <option>{item.code} - {item.description}</option>
+                                            )
+                                        })}
+                                    </Form.Control>
+                                </Col>
+                                <Col xs={1}>
+                                    <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
+                                </Col>
+                                <Col xs={4}>
+                                    <Form.Control className="inputs" as="select" defaultValue="To" onChange={this.toHandler}>
+                                        <option>To</option>
+                                        {this.state.currencies.map(item => {
+                                            return (
+                                                <option>{item.code} - {item.description}</option>
+                                            )
+                                        })}
+                                    </Form.Control>
+                                </Col>
+                            </Row>
+                            <Button variant="primary" type="submit" className='mybtn one'>
+                                Convert
                 <div className='converter-c'>
                     <Card className='converter'>
                         <Card.Body>
