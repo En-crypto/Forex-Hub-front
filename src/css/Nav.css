@@ -47,3 +47,11 @@ a:hover{
     border-color: rgb(237, 205, 55) !important;
     background-color: rgb(237, 205, 55) !important;
 }
+
+#top img {
+    height: 80px;
+}
+
+.logo{
+    display: flex !important;
+}

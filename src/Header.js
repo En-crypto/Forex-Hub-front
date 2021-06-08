@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBNavbarNav,
-  MDBNavbarLink,
-  MDBIcon,
-  MDBCollapse
-} from 'mdb-react-ui-kit';
+import logo from './img/Logos/h4.png';
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogOut";
 import { withAuth0 } from '@auth0/auth0-react';
@@ -63,7 +54,11 @@ function Header(props) {
 
     <Navbar bg="light" variant="light">
       <div className='container' id='top'>
-        <Navbar.Brand href="#home"><h3>Forex<span>Hub</span></h3></Navbar.Brand>
+        <Navbar.Brand href="#home" className = 'logo'>
+          <img src={logo} alt = 'logo'>
+          </img>
+        <h3>Forex<span>Hub</span></h3>
+        </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link>
             <Link to="/">Home</Link>
