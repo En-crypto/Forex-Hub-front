@@ -1,26 +1,18 @@
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBNavbarNav,
-  MDBNavbarLink,
-  MDBIcon,
-  MDBCollapse
-} from 'mdb-react-ui-kit';
+import logo from './img/Logos/h4.png';
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogOut";
 import { withAuth0 } from '@auth0/auth0-react';
-import {Navbar,Nav} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import './css/Nav.css';
 
 function Header(props) {
   // const [showNavSecond, setShowNavSecond] = useState(false);
   let isAdmin = false;
-  
-  if(props.auth0.isAuthenticated){
+
+  if (props.auth0.isAuthenticated) {
     isAdmin = (props.auth0.user.email === 'mmohiesen996@gmail.com');
 
   }
@@ -60,38 +52,45 @@ function Header(props) {
     //   </MDBContainer>
     // </MDBNavbar>
 
-<Navbar bg="light" variant="light">
-<div className='container'>
-<Navbar.Brand href="#home"><h3>Forex<span>Hub</span></h3></Navbar.Brand>
-<Nav className="ml-auto">
-  <Nav.Link>
-  <Link to="/">Home</Link>
-  </Nav.Link>
-  <Nav.Link>
-  <Link to="/convert">Converter</Link>
-  </Nav.Link>
-  <Nav.Link >
-  <Link to="/feed">FeedBack</Link>
-  </Nav.Link>
-  <Nav.Link >
-  <Link to="/favorite">Favorite</Link>
-  </Nav.Link>
-  <Nav.Link >
-  <Link to="/contact">Contact Us</Link>
-  </Nav.Link>
-  <Nav.Link >
-    <Link to="/about">About Us</Link>
-  </Nav.Link>
-  <Nav.Link>
-  <Link to="/profile"><FaRegUserCircle className='profile'/></Link>
-  </Nav.Link>
+    <Navbar bg="light" variant="light">
+      <div className='container' id='top'>
+        <Navbar.Brand href="#home" className = 'logo'>
+          <img src={logo} alt = 'logo'>
+          </img>
+        <h3>Forex<span>Hub</span></h3>
+        </Navbar.Brand>
+        <Nav className="ml-auto">
+          <Nav.Link>
+            <Link to="/">Home</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/convert">Converter</Link>
+          </Nav.Link>
+          <Nav.Link >
+            <Link to="/feed">FeedBack</Link>
+          </Nav.Link>
+          <Nav.Link >
+            <Link to="/favorite">Favorite</Link>
+          </Nav.Link>
+          <Nav.Link >
+            <Link to="/contact">Contact Us</Link>
+          </Nav.Link>
+          <Nav.Link >
+            <Link to="/about">About Us</Link>
+          </Nav.Link>
+          <Nav.Link>
+            {
+              props.auth0.isAuthenticated &&
+              <Link to="/profile"><FaRegUserCircle className='profile' /></Link>
+            }
+          </Nav.Link>
 
-</Nav>
-</div>
-{props.auth0.isAuthenticated ? <LogoutButton/> : 
-<LoginButton/>
-}
-</Navbar>
+        </Nav>
+      </div>
+      {props.auth0.isAuthenticated ? <LogoutButton /> :
+        <LoginButton />
+      }
+    </Navbar>
   );
 }
 

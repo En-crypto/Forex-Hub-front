@@ -11,6 +11,7 @@ import banner from './img/banner.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel,Button } from 'react-bootstrap'
 import LoginButton from './LoginButton';
+import './css/Hero.css';
 
 
 class Hero extends React.Component {
@@ -20,13 +21,13 @@ class Hero extends React.Component {
 
             <div className='hero-section'>
                 <div className='intro'>
-                    <h2>
+                    <h2 id="join">
                         Platform for currency traders
                     </h2>
                     <p>
                         Join Us Now to Access all the features
                     </p>
-                    <LoginButton/>
+                    <LoginButton />
                 </div>
                 <div className = 'banner'>
 
