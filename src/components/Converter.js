@@ -128,6 +128,9 @@ class Converter extends React.Component {
                                                                 </Col>
                                                                 <Col xs={3}>
                                                                     <Form.Control className="inputs" as="select"  onChange={this.fromHandler} selected>
+                                                                        <option>
+                                                                            From
+                                                                        </option>
                                                                         {this.state.currencies.map(item => {
                                                                             return (
                                                                                 <option >{item.code} - {item.description}</option>
@@ -140,6 +143,9 @@ class Converter extends React.Component {
                                                                 </Col>
                                                                 <Col xs={3}>
                                                                     <Form.Control className="inputs" as="select"  onChange={this.toHandler} selected>
+                                                                    <option>
+                                                                            To
+                                                                        </option>
                                                                         {this.state.currencies.map(item => {
                                                                             return (
                                                                                 <option>{item.code} - {item.description}</option>
@@ -162,6 +168,9 @@ class Converter extends React.Component {
                                     </Col>
                                     <Col xs={3}>
                                         <Form.Control className="inputs" as="select"  onChange={this.toHandler} selected>
+                                        <option>
+                                                                            To
+                                                                        </option>
                                             {this.state.currencies.map(item => {
                                                 return (
                                                     <option>{item.code} - {item.description}</option>
@@ -174,6 +183,9 @@ class Converter extends React.Component {
                                     </Col>
                                     <Col xs={3}>
                                         <Form.Control className="inputs" as="select"  onChange={this.fromHandler} selected>
+                                        <option>
+                                                                            From
+                                                                        </option>
                                             {this.state.currencies.map(item => {
                                                 return (
                                                     <option>{item.code} - {item.description}</option>

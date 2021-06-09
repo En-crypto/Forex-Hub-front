@@ -87,7 +87,11 @@ class Favorite extends React.Component {
                     <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Choose favorite currency</Form.Label>
                         <Form.Control as="select" onChange={this.handleFav}>
+                                <option>
+                                    Choose :
+                                </option>
                             {this.state.oldFavData.map(item => {
+
                                 return (
                                     <option>
                                         {item.name1} / {item.name2}
