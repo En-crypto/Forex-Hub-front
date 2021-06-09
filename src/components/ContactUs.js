@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
-import {Button, Card , Modal} from 'react-bootstrap/';
+import {Button, Card , Jumbotron , Container} from 'react-bootstrap/';
 import '../css/App.css';
 import axios from 'axios';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -54,9 +54,19 @@ closeFunction = async (e)=>{
 render() {
     
     return (
+        <>
+        <div className='jumb'>
+        <Jumbotron fluid id="team-intro">
+            <Container class='converter-head'>
+                <h2> Get in touch!</h2>
+                <p>
+please feel free to drop me a line if u don't get an answer immediately. I might just be traveling through the middle of nowhere. I will get back to u as soon as I can. That's a promise.
+            </p>
+            </Container>
+        </Jumbotron>
+    </div>
         <div className='contact'>
             <NotificationContainer/>
-                <h2>Give Us Your Feed Back : </h2>
                 <Card className="text-center">
                 <Card.Header> To contact us, you can fill out the form and we will respond as soon as possible </Card.Header>
                 <Card.Body>
@@ -75,7 +85,7 @@ render() {
                     <Form.Group>
                         <Form.Control className="col" as="textarea" rows={3} name="userFeedback" placeholder="Write your feedback"/>
                     </Form.Group>
-                    <Button variant="outline-primary" type="submit">
+                    <Button variant="outline-primary" type="submit" className = 'testt2'>
                         Submit
                     </Button>
                 </Form>
@@ -86,6 +96,7 @@ render() {
 
 
             </div>
+        </>
         )
      
     }

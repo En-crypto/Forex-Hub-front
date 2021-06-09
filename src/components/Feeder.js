@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { Button } from 'bootstrap';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button ,Jumbotron , Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table'
 // import Feedback from 'react-bootstrap/esm/Feedback';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -42,8 +42,19 @@ class Feeder extends React.Component {
     render() {
         return (
             <>
+                            <div className='jumb'>
+                    <Jumbotron fluid id="team-intro">
+                        <Container class='converter-head'>
+                            <h2>Feed Back</h2>
+                            <p>
+                                Here You can see User's feed backs <br></br>
+                           Take in consideration to reply to them ASAP and delete them .
+                        </p>
+                        </Container>
+                    </Jumbotron>
+                </div>
             <NotificationContainer/>
-                <div className='feedback'>
+                <div className='feedback container'>
                     
                     
                     {this.state.feeds.length >0 &&
