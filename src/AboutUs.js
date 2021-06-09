@@ -21,9 +21,7 @@ class AboutUs extends React.Component {
                         <Container>
                             <h2>Meet Our Team</h2>
                             <p id='para'>
-                            we are a sincere company with a straightforward vision . we believe that there is an amazing amount to be learned by working in the "real world" web production environment,alongside other like minded teens .<br></br>
-                            <br></br>
-with this in mind we began to gather people together in 2021 ,from there the group quickly expanded to 5 members and we decided upon the name "ForxHuB" after a slow start we found five solid dedicated members who are in group today.
+                            we are a sincere company with a straightforward vision . we believe that there is an amazing amount to be learned by working in the web production environment .<br></br>
                         </p>
                         </Container>
                     </Jumbotron>
@@ -49,9 +47,9 @@ with this in mind we began to gather people together in 2021 ,from there the gro
 
                                         <h6>Civil Engineer</h6>
                                     </Row>
-
                                     <Row>
 
+                                    <div className='social-con'>
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
                                         </Col>
@@ -61,8 +59,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Haneenabonser" />
                                         </Col>
-
-
+                                        </div>
                                     </Row>
                                 </Card.Text>
 
@@ -91,7 +88,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                     </Row>
 
                                     <Row>
-
+                                    <div className='social-con'>
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://linkedin.com/in/haneen-abonser" />
                                         </Col>
@@ -101,7 +98,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Alaa-AbuIssa" />
                                         </Col>
-
+                                        </div>
 
                                     </Row>
                                 </Card.Text>
@@ -131,7 +128,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                     </Row>
 
                                     <Row>
-
+                                    <div className='social-con'>
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/maryam-najjar-112a98161 " />
                                         </Col>
@@ -141,8 +138,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Maryam-n98" />
                                         </Col>
-
-
+                                        </div>
                                     </Row>
                                 </Card.Text>
 
@@ -174,7 +170,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                     </Row>
 
                                     <Row>
-
+                                    <div className='social-con'>
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
                                         </Col>
@@ -185,7 +181,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/mmohiesen96" />
                                         </Col>
 
-
+                                            </div>
                                     </Row>
                                 </Card.Text>
 
@@ -214,6 +210,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                     </Row>
 
                                     <Row>
+                                    <div className='social-con'>
 
                                         <Col style={{ border: 'none' }}>
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/mo-tasim-al-azzam-3543b51a2/" />
@@ -225,7 +222,7 @@ with this in mind we began to gather people together in 2021 ,from there the gro
                                             <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/motasimalazzam" />
                                         </Col>
 
-
+                                            </div>
                                     </Row>
                                 </Card.Text>
 

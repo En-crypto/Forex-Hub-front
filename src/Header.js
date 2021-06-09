@@ -18,39 +18,6 @@ function Header(props) {
   }
 
   return (
-    // <MDBNavbar expand='lg' light bgColor='light' id="navBar">
-    //   <MDBContainer fluid>
-    //     <MDBNavbarBrand className='nav' href='#'><Link to="/">Navbar</Link></MDBNavbarBrand>
-    //     <MDBNavbarToggler
-    //       aria-expanded='false'
-    //       aria-label='Toggle navigation'
-    //       onClick={() => setShowNavSecond(!showNavSecond)}
-    //     >
-    //       <MDBIcon icon='bars' fas />
-    //     </MDBNavbarToggler>
-    //     <MDBCollapse navbar show={showNavSecond}>
-    //       <MDBNavbarNav>
-    //         <MDBNavbarLink className='nav' active aria-current='page' href='#'>
-    //         <Link to="/">Home</Link>
-    //         </MDBNavbarLink >
-    //         {props.auth0.isAuthenticated && 
-    //         <MDBNavbarLink href='#'><Link to="/profile">Profile</Link></MDBNavbarLink>
-    //         }
-    //         <MDBNavbarLink href='#'><Link to="/convert">Converter</Link></MDBNavbarLink>
-    //         {isAdmin && 
-    //         <MDBNavbarLink href='#'><Link to="/feed">FeedBack</Link></MDBNavbarLink>}
-    //         {props.auth0.isAuthenticated && 
-    //         <MDBNavbarLink href='#'><Link to="/favorite">Favorite</Link></MDBNavbarLink>}
-    //         <MDBNavbarLink className='nav' href='#'><Link to="/contact">Contact Us</Link></MDBNavbarLink>
-    //         <MDBNavbarLink className='nav' href='#'>
-    //         <Link to="/about">About Us</Link>
-    //         </MDBNavbarLink>
-    //         <LoginButton/>
-    //         <LogoutButton/>
-    //       </MDBNavbarNav>
-    //     </MDBCollapse>
-    //   </MDBContainer>
-    // </MDBNavbar>
 
     <Navbar bg="light" variant="light">
       <div className='container' id='top'>
@@ -59,7 +26,7 @@ function Header(props) {
           </img>
         <h3>Forex<span>Hub</span></h3>
         </Navbar.Brand>
-        <Nav className="ml-auto">
+        <Nav className="ml-auto nav-items">
           <Nav.Link>
             <Link to="/">Home</Link>
           </Nav.Link>
@@ -87,7 +54,7 @@ function Header(props) {
           <Nav.Link>
             {
               props.auth0.isAuthenticated &&
-              <Link to="/profile"><FaRegUserCircle className='profile' /></Link>
+              <Link to="/profile"><img src = {props.auth0.user.picture} alt='profile' class = 'profile'/></Link>
             }
           </Nav.Link>
 

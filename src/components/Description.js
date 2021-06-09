@@ -1,5 +1,5 @@
 import React from 'react';
-import desc from '../img/desc.jpeg'
+import desc from '../img/pic.png'
 import { Button, Card } from 'react-bootstrap';
 import { MdTimeline, MdSupervisorAccount } from 'react-icons/md';
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
@@ -30,6 +30,8 @@ class Description extends React.Component {
 
 
                 {/* marioooooooooom*/}
+                <div className='container'>
+
                 <div className="divCard">
                     <div>
                         <Card className="carddes" style={{ width: '18rem' }}>
@@ -81,6 +83,8 @@ class Description extends React.Component {
 
                 </div>
             </div>
+            </div>
+
         )
     }
 }

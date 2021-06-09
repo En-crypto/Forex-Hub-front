@@ -24,7 +24,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       favData : [],
-
+      userData:{},
     }
   }
   getFavData = (favData) => {
@@ -33,7 +33,6 @@ class App extends React.Component {
     })
     console.log(this.state.favData);
   }
-
   render() {
   
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Modal ,Card , ListGroup} from 'react-bootstrap';
+import { Form, Button, Modal ,Card , ListGroup , Jumbotron , Container} from 'react-bootstrap';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 
@@ -24,12 +24,11 @@ class Favorite extends React.Component {
     getFavData = async () => {
         let source = 'http://localhost:3001';
         let email = this.props.auth0.user.email;
-        let favData = await axios.get(`${source}/getFavData`, { params: { email } });
-        this.setState({
-            oldFavData: favData.data
-        })
-
-        console.log(favData.data);
+            let favData = await axios.get(`${source}/getFavData`, { params: { email } });
+            this.setState({
+                oldFavData: favData.data
+            })
+            
     }
 
     renderData = async (e) => {
@@ -48,7 +47,7 @@ class Favorite extends React.Component {
             currentPrice: price.data.result,
             priceForTenDays: Math.max(...Object.values(tenDays.data.rates).map(Object.values)),
             priceForOneMonth: Math.max(...Object.values(oneMonth.data.rates).map(Object.values)),
-            priceFortwoMonths: Math.max(...Object.values(twoMonths.data.rates).map(Object.values)),
+            priceFortwoMonths: Math.min(...Object.values(twoMonths.data.rates).map(Object.values)),
             showModal: true,
             showTable:false
         })
@@ -71,7 +70,19 @@ class Favorite extends React.Component {
     }
     render() {
         return (
-            <div className='favorite'>
+            <>
+                            <div className='jumb'>
+                    <Jumbotron fluid id="team-intro">
+                        <Container class='converter-head'>
+                            <h2>Your favorite Currencies</h2>
+                            <p>
+                                Here you can view your favorite currencies and <br></br>
+                                you can view information about your favorite pair of currencies .
+                        </p>
+                        </Container>
+                    </Jumbotron>
+                </div>
+            <div className='favorite container'>
                 <Form onSubmit={this.renderData}>
                     <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Choose favorite currency</Form.Label>
@@ -85,7 +96,7 @@ class Favorite extends React.Component {
                             })}
                         </Form.Control>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" className='mybtn'>
                         Submit
                     </Button>
                 </Form>
@@ -95,10 +106,16 @@ class Favorite extends React.Component {
                         <Modal.Title>{this.state.currencyFrom} To {this.state.currencyTo}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Current Price : {this.state.currentPrice}<br></br>
-                        Max price in 10 days : {this.state.priceForTenDays}<br></br>
-                        Max price in 30 days : {this.state.priceForOneMonth}<br></br>
-                        Max price in 60 days : {this.state.priceFortwoMonths}<br></br>
+                    <Card style={{ width: '30rem' }}>
+                        <Card.Header>Featured</Card.Header>
+                        <ListGroup variant="flush">
+                            <ListGroup.Item>Current Price : {this.state.currentPrice}</ListGroup.Item>
+                            <ListGroup.Item>Max price in 10 days : {this.state.priceForTenDays}</ListGroup.Item>
+                            <ListGroup.Item>Max price in 30 days : {this.state.priceForOneMonth}</ListGroup.Item>
+                            <ListGroup.Item>Min price in 60 days : {this.state.priceFortwoMonths}</ListGroup.Item>
+                        </ListGroup>
+                        
+                    </Card>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="primary" onClick={this.handleClose}>
@@ -108,17 +125,18 @@ class Favorite extends React.Component {
                 </Modal>
                 {
                     this.state.showTable &&
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '30rem' }}>
                         <Card.Header>Featured</Card.Header>
                         <ListGroup variant="flush">
                             <ListGroup.Item>Current Price : {this.state.currentPrice}</ListGroup.Item>
                             <ListGroup.Item>Max price in 10 days : {this.state.priceForTenDays}</ListGroup.Item>
                             <ListGroup.Item>Max price in 30 days : {this.state.priceForOneMonth}</ListGroup.Item>
-                            <ListGroup.Item>Max price in 60 days : {this.state.priceFortwoMonths}</ListGroup.Item>
+                            <ListGroup.Item>Min price in 60 days : {this.state.priceFortwoMonths}</ListGroup.Item>
                         </ListGroup>
                     </Card>
                 }
             </div>
+            </>
         )
     }
 }
