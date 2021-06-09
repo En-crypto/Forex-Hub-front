@@ -68,7 +68,7 @@ please feel free to drop me a line if u don't get an answer immediately. I might
         <div className='contact'>
             <NotificationContainer/>
                 <Card className="text-center">
-                <Card.Header> To contact us, you can fill out the form and we will respond as soon as possible </Card.Header>
+                <Card.Header style={{fontWeight : '900'}}> To contact us, you can fill out the form and we will respond as soon as possible </Card.Header>
                 <Card.Body>
                 <Form className='form' onSubmit={this.submitFun}>
                     <Form.Group>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
-import { FaRegUserCircle } from 'react-icons/fa';
+import React from 'react';
 import logo from './img/Logos/h4.png';
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogOut";
@@ -9,7 +8,6 @@ import { Navbar, Nav } from 'react-bootstrap';
 import './css/Nav.css';
 
 function Header(props) {
-  // const [showNavSecond, setShowNavSecond] = useState(false);
   let isAdmin = false;
 
   if (props.auth0.isAuthenticated) {

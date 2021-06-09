@@ -120,7 +120,8 @@ class Converter extends React.Component {
                 <div className='converter-c'>
                     <Card className='converter'>
                         <Card.Body>
-                            {this.state.swap ? <div>
+ <div>
+                                                                <h2 className = 'conv-header'>Convert</h2>
                                                             <Form onSubmit={this.getConverterData} className='conv-form'>
                                                             <Row>
                                                                 <Col xs={4}>
@@ -159,48 +160,6 @@ class Converter extends React.Component {
                                                 </Button >
                                                         </Form>
                                                         </div>
-                                                            :
-                                                            <div>
-                            <Form onSubmit={this.getConverterData} className='conv-form'>
-                                <Row>
-                                    <Col xs={4}>
-                                        <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
-                                    </Col>
-                                    <Col xs={3}>
-                                        <Form.Control className="inputs" as="select"  onChange={this.toHandler} selected>
-                                        <option>
-                                                                            To
-                                                                        </option>
-                                            {this.state.currencies.map(item => {
-                                                return (
-                                                    <option>{item.code} - {item.description}</option>
-                                                )
-                                            })}
-                                        </Form.Control>
-                                    </Col>
-                                    <Col xs={1}>
-                                        <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
-                                    </Col>
-                                    <Col xs={3}>
-                                        <Form.Control className="inputs" as="select"  onChange={this.fromHandler} selected>
-                                        <option>
-                                                                            From
-                                                                        </option>
-                                            {this.state.currencies.map(item => {
-                                                return (
-                                                    <option>{item.code} - {item.description}</option>
-                                                )
-                                            })}
-                                        </Form.Control>
-                                    </Col>
-
-                                </Row>
-                                <Button variant="primary" type="submit" className='mybtn conv-btn'>
-                                    Convert
-                    </Button >
-                            </Form>
-                            </div>
-                            }
 
                                 <div className='result'>
                             {this.state.showResult &&

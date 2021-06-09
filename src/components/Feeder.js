@@ -59,7 +59,7 @@ class Feeder extends React.Component {
                     
                     {this.state.feeds.length >0 &&
                     
-                    <Table striped bordered hover >
+                    <Table striped bordered hover className='feed-table'>
                         <thead style={{ textAlign: "center" }}>
                             <tr>
                                 <th >User Name</th>

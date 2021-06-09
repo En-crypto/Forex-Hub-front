@@ -1,10 +1,8 @@
 import React from 'react';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomeImg from './img/Home.png';
 import Button from 'react-bootstrap/Button';
 import Clock from 'react-live-clock';
-import { CCard, CCardBody, CCardHeader, CCardText, CCardTitle } from '@coreui/react';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import './css/Home.css';
@@ -102,57 +100,6 @@ class Table extends React.Component {
                 </div>
 
             </>
-            // <div className='cards'>
-            //     <a href="/#home">
-            //         <CCard
-
-            //             color='light'
-            //             textColor='black'
-            //             className="mb-3 card"
-            //             style={{ maxWidth: '18rem' }} >
-            //             <CCardHeader>Explore!</CCardHeader>
-            //             <CCardBody>
-            //                 <CCardText>
-            //                     Some quick example text to build on the card title and make up the
-            //                     bulk of the card's content.
-            //     </CCardText>
-            //             </CCardBody>
-            //         </CCard>
-            //     </a>
-            //     <a href="/#live">
-            //         <CCard
-
-            //             color='light'
-            //             textColor='black'
-            //             className="mb-3 card"
-            //             style={{ maxWidth: '18rem' }} >
-            //             <CCardHeader>Live Updates</CCardHeader>
-            //             <CCardBody>
-            //                 <CCardText>
-            //                     Some quick example text to build on the card title and make up the
-            //                     bulk of the card's content.
-            //     </CCardText>
-            //             </CCardBody>
-            //         </CCard>
-            //     </a>
-            //     <a href="/#hero-btn">
-            //         <CCard
-
-            //             color='light'
-            //             textColor='black'
-            //             className="mb-3 card"
-            //             style={{ maxWidth: '18rem' }} >
-            //             <CCardHeader>Join Us</CCardHeader>
-            //             <CCardBody>
-            //                 <CCardText>
-            //                     Some quick example text to build on the card title and make up the
-            //                     bulk of the card's content.
-            //     </CCardText>
-            //             </CCardBody>
-            //         </CCard>
-            //     </a>
-
-            // </div>
         );
     }
 

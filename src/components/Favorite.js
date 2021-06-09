@@ -40,8 +40,6 @@ class Favorite extends React.Component {
         let twoMonths = await axios.get(`https://api.exchangerate.host/timeseries?start_date=2021-04-08&end_date=2021-06-08&base=${this.state.currencyFrom}&symbols=${this.state.currencyTo}`);
 
         let x = Object.values(tenDays.data.rates);
-        // let y = ;
-        // console.log(Math.max(...y));
 
         this.setState({
             currentPrice: price.data.result,
@@ -122,7 +120,7 @@ class Favorite extends React.Component {
                     </Card>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" onClick={this.handleClose}>
+                        <Button variant="primary" onClick={this.handleClose} className='mybtn'>
                             Stick to Screen
                     </Button>
                     </Modal.Footer>

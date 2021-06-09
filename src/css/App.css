@@ -467,6 +467,21 @@ margin-left: 44.2%;
 .cardText{
 font-weight: bold !important;
 }
-/* description style mariiiiiiooooom*/
+/* description style mariiiiiiooooom I love you*/
 
 
+.feed-table th{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.feed-table td {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.conv-header{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+}

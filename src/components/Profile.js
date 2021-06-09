@@ -1,9 +1,8 @@
 import React from 'react';
-import { Card, Button, ProgressBar, ListGroup, Jumbotron, Container } from 'react-bootstrap';
-import Converter from './Converter';
+import { Card, Button, ListGroup, Jumbotron, Container } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import '../css/App.css'
+import '../css/App.css';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
