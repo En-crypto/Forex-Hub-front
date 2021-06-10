@@ -17,7 +17,7 @@ class Feeder extends React.Component {
     }
 
     getFeedBack = async () => {
-        const source = 'http://localhost:3001';
+        const source = process.env.REACT_APP_PORT;
         let userFeed = await axios.get(`${source}/getfeed`);
         this.setState({
             feeds: userFeed.data,
@@ -29,7 +29,7 @@ class Feeder extends React.Component {
         const userEmail = {
             email: this.state.feeds.userEmail
         }
-        const source = 'http://localhost:3001';
+        const source = process.env.REACT_APP_PORT;
 
         let newfeeds = await axios.delete(`${source}/deletefeed/${index}`, { params: userEmail })
             this.getFeedBack();

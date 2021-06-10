@@ -18,7 +18,7 @@ class Table extends React.Component {
         this.getLivePrice();
     }
     getLivePrice = async () => {
-        let source = 'http://localhost:3001';
+        let source = `${process.env.REACT_APP_PORT}`;
         const livePrice = await axios.get(`${source}/rate?base=${this.state.base}`);
         const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
 
@@ -32,7 +32,7 @@ class Table extends React.Component {
             base: e.target.value,
         },
             async () => {
-                let source = 'http://localhost:3001';
+                let source = `${process.env.REACT_APP_PORT}`;
                 const livePrice = await axios.get(`${source}/rate?base=${this.state.base}`);
                 const historyPrice = await axios.get(`${source}/history?base=${this.state.base}`);
 
@@ -91,7 +91,7 @@ class Table extends React.Component {
                                             </th>
                                             <td>{item[0]}</td>
                                             <td>{item[1]}</td>
-                                            <td><Clock format={'hh:mm:ss'} ticking={false} timezone={'Asia/Aden'} /></td>
+                                            <td><Clock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Aden'} /></td>
                                         </tr>
                                     )
                                 })}

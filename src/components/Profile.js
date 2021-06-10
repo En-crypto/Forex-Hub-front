@@ -19,7 +19,7 @@ class Profile extends React.Component {
       image_url: this.props.auth0.user.picture,
       interests: 'nothing'
     }
-    let newUser = await axios.post(`http://localhost:3001/addUser`, userData);
+    let newUser = await axios.post(`${process.env.REACT_APP_PORT}/addUser`, userData);
     this.setState({
       currentUser: JSON.parse(newUser.config.data),
       isAuthenticated: true

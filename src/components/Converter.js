@@ -17,14 +17,14 @@ class Converter extends React.Component {
             result: 1,
             currencies: [],
             showResult: false,
-            swap : false
+            swap: false
         }
         this.getSymbols();
     }
     // https://api.exchangerate.host/convert?from=USD&to=EUR
     getConverterData = async (e) => {
         e.preventDefault();
-        let source = 'http://localhost:3001';
+        let source = process.env.REACT_APP_PORT;
         const resultData = await axios.get(`${source}/convert?from=${this.state.currencyFrom}&to=${this.state.currencyTo}`);
         this.setState({
             result: resultData.data.result * this.state.amount,
@@ -37,7 +37,7 @@ class Converter extends React.Component {
 
 
     getSymbols = async () => {
-        let source = 'http://localhost:3001';
+        let source = process.env.REACT_APP_PORT;
         const selectData = await axios.get(`${source}/symbols`);
         this.setState({
             currencies: Object.values(selectData.data.symbols),
@@ -67,7 +67,7 @@ class Converter extends React.Component {
     }
 
     addToFavortie = async () => {
-        let source = 'http://localhost:3001';
+        let source = process.env.REACT_APP_PORT;
         const resultData = await axios.get(`${source}/convert?from=${this.state.currencyFrom}&to=${this.state.currencyTo}`);
         const currencyData = {
             name1: this.state.currencyFrom,
@@ -85,21 +85,21 @@ class Converter extends React.Component {
         this.setState({
             currencyFrom: temp,
             currencyTo: this.state.currencyFrom,
-            swap:true
+            swap: true
         })
 
-        if(this.state.swap){
+        if (this.state.swap) {
             this.setState({
-                swap:false
+                swap: false
             })
         }
-            else{
-                this.setState({
-                    swap:true
-                })
-            }
+        else {
+            this.setState({
+                swap: true
+            })
+        }
 
-            console.log(this.state.swap);
+        console.log(this.state.swap);
     }
 
     render() {
@@ -111,7 +111,7 @@ class Converter extends React.Component {
                         <Container class='converter-head'>
                             <h2>About The Converter</h2>
                             <p>
-                                Here is a simple money converter with hourly updated exchange rates <br></br>
+                                Here is a simple money converter with live updated exchange rates <br></br>
                            Enter an amount of money in the box, select your currencies from the drop-down lists. DONE!
                         </p>
                         </Container>
@@ -120,56 +120,56 @@ class Converter extends React.Component {
                 <div className='converter-c'>
                     <Card className='converter'>
                         <Card.Body>
- <div>
-                                                                <h2 className = 'conv-header'>Convert</h2>
-                                                            <Form onSubmit={this.getConverterData} className='conv-form'>
-                                                            <Row>
-                                                                <Col xs={4}>
-                                                                    <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
-                                                                </Col>
-                                                                <Col xs={3}>
-                                                                    <Form.Control className="inputs" as="select"  onChange={this.fromHandler} selected>
-                                                                        <option>
-                                                                            From
+                            <div>
+                                <h2 className='conv-header'>Convert</h2>
+                                <Form onSubmit={this.getConverterData} className='conv-form'>
+                                    <Row>
+                                        <Col xs={4}>
+                                            <Form.Control className="inputs" type="number" placeholder="Enter Amount" onChange={this.amountHandler} />
+                                        </Col>
+                                        <Col xs={3}>
+                                            <Form.Control className="inputs" as="select" onChange={this.fromHandler} selected>
+                                                <option>
+                                                    From
                                                                         </option>
-                                                                        {this.state.currencies.map(item => {
-                                                                            return (
-                                                                                <option >{item.code} - {item.description}</option>
-                                                                            )
-                                                                        })}
-                                                                    </Form.Control>
-                                                                </Col>
-                                                                <Col xs={1}>
-                                                                    <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
-                                                                </Col>
-                                                                <Col xs={3}>
-                                                                    <Form.Control className="inputs" as="select"  onChange={this.toHandler} selected>
-                                                                    <option>
-                                                                            To
+                                                {this.state.currencies.map(item => {
+                                                    return (
+                                                        <option >{item.code} - {item.description}</option>
+                                                    )
+                                                })}
+                                            </Form.Control>
+                                        </Col>
+                                        <Col xs={1}>
+                                            <button className='swapButton' onClick={this.swapHandle}><ArrowLeftRight /></button>
+                                        </Col>
+                                        <Col xs={3}>
+                                            <Form.Control className="inputs" as="select" onChange={this.toHandler} selected>
+                                                <option>
+                                                    To
                                                                         </option>
-                                                                        {this.state.currencies.map(item => {
-                                                                            return (
-                                                                                <option>{item.code} - {item.description}</option>
-                                                                            )
-                                                                        })}
-                                                                    </Form.Control>
-                                                                </Col>
-                                                            </Row>
-                                                            <Button variant="primary" type="submit" className='mybtn conv-btn'>
-                                                                Convert
+                                                {this.state.currencies.map(item => {
+                                                    return (
+                                                        <option>{item.code} - {item.description}</option>
+                                                    )
+                                                })}
+                                            </Form.Control>
+                                        </Col>
+                                    </Row>
+                                    <Button variant="primary" type="submit" className='mybtn conv-btn'>
+                                        Convert
                                                 </Button >
-                                                        </Form>
-                                                        </div>
+                                </Form>
+                            </div>
 
-                                <div className='result'>
-                            {this.state.showResult &&
-                                <p className="convert-from">{`${this.state.amount} ${this.state.currencyFrom} =`} {` ${this.state.result} ${this.state.currencyTo}`}</p>
-                            }
-                            {this.props.auth0.isAuthenticated &&
-                                <Button variant="primary" onClick={this.addToFavortie} className='mybtn conv-btn'>
-                                    Add to Favorite
+                            <div className='result'>
+                                {this.state.showResult &&
+                                    <p className="convert-from">{`${this.state.amount} ${this.state.currencyFrom} =`} {` ${this.state.result} ${this.state.currencyTo}`}</p>
+                                }
+                                {this.props.auth0.isAuthenticated &&
+                                    <Button variant="primary" onClick={this.addToFavortie} className='mybtn conv-btn'>
+                                        Add to Favorite
                             </Button>}
-                                </div>
+                            </div>
 
                         </Card.Body>
                     </Card>

@@ -16,7 +16,7 @@ class Contact extends React.Component {
             userNumber: '',
             userFeedback: '',
             show: false,
-            serverRoute: 'http://localhost:3001'
+            serverRoute: process.env.REACT_APP_PORT
         });
     }
     

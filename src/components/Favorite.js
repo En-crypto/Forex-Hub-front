@@ -22,7 +22,7 @@ class Favorite extends React.Component {
         console.log(this.state.oldFavData);
     }
     getFavData = async () => {
-        let source = 'http://localhost:3001';
+        let source = process.env.REACT_APP_PORT;
         let email = this.props.auth0.user.email;
             let favData = await axios.get(`${source}/getFavData`, { params: { email } });
             this.setState({
@@ -33,7 +33,7 @@ class Favorite extends React.Component {
 
     renderData = async (e) => {
         e.preventDefault();
-        let source = 'http://localhost:3001';
+        let source = process.env.REACT_APP_PORT;
         let price = await axios.get(`${source}/convert?from=${this.state.currencyFrom}&to=${this.state.currencyTo}`)
         let tenDays = await axios.get(`https://api.exchangerate.host/timeseries?start_date=2021-05-30&end_date=2021-06-08&base=${this.state.currencyFrom}&symbols=${this.state.currencyTo}`);
         let oneMonth = await axios.get(`https://api.exchangerate.host/timeseries?start_date=2021-05-08&end_date=2021-06-08&base=${this.state.currencyFrom}&symbols=${this.state.currencyTo}`);
